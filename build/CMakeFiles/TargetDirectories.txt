@@ -199,3 +199,7 @@ C:/Users/Elcio.SAMSUNGBOOK-2DE/Desktop/projeto_final_freertos/build/FREERTOS_KER
 C:/Users/Elcio.SAMSUNGBOOK-2DE/Desktop/projeto_final_freertos/build/src/CMakeFiles/picow_freertos.dir
 C:/Users/Elcio.SAMSUNGBOOK-2DE/Desktop/projeto_final_freertos/build/src/CMakeFiles/edit_cache.dir
 C:/Users/Elcio.SAMSUNGBOOK-2DE/Desktop/projeto_final_freertos/build/src/CMakeFiles/rebuild_cache.dir
+C:/Users/Elcio.SAMSUNGBOOK-2DE/Desktop/projeto_final_freertos/build/src/pico_extras/CMakeFiles/edit_cache.dir
+C:/Users/Elcio.SAMSUNGBOOK-2DE/Desktop/projeto_final_freertos/build/src/pico_extras/CMakeFiles/rebuild_cache.dir
+C:/Users/Elcio.SAMSUNGBOOK-2DE/Desktop/projeto_final_freertos/build/src/pico-sdk/CMakeFiles/edit_cache.dir
+C:/Users/Elcio.SAMSUNGBOOK-2DE/Desktop/projeto_final_freertos/build/src/pico-sdk/CMakeFiles/rebuild_cache.dir

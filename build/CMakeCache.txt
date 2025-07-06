@@ -297,6 +297,16 @@ PICO_DEFAULT_BOOT_STAGE2:STRING=compile_time_choice
 //Build debug builds with -O0
 PICO_DEOPTIMIZED_DEBUG:BOOL=OFF
 
+//Set to ON to fetch copy of PICO EXTRAS from git if not otherwise
+// locatable
+PICO_EXTRAS_FETCH_FROM_GIT:BOOL=
+
+//location to download EXTRAS
+PICO_EXTRAS_FETCH_FROM_GIT_PATH:FILEPATH=
+
+//Path to the PICO EXTRAS
+PICO_EXTRAS_PATH:PATH=C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/pico-extras
+
 //Default binaries to not not use flash
 PICO_NO_FLASH:BOOL=OFF
 
@@ -333,8 +343,14 @@ PICO_STDIO_UART:BOOL=ON
 //Globally enable stdio USB
 PICO_STDIO_USB:BOOL=OFF
 
-//No help, variable specified on the command line.
-Python3_EXECUTABLE:UNINITIALIZED=C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/python/3.12.6/python.exe
+//Value Computed by CMake
+pico_extras_BINARY_DIR:STATIC=C:/Users/Elcio.SAMSUNGBOOK-2DE/Desktop/projeto_final_freertos/build/src/pico_extras
+
+//Value Computed by CMake
+pico_extras_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+pico_extras_SOURCE_DIR:STATIC=C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/pico-extras
 
 //Value Computed by CMake
 pico_sdk_BINARY_DIR:STATIC=C:/Users/Elcio.SAMSUNGBOOK-2DE/Desktop/projeto_final_freertos/build/pico-sdk
@@ -346,13 +362,13 @@ pico_sdk_IS_TOP_LEVEL:STATIC=OFF
 pico_sdk_SOURCE_DIR:STATIC=C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1
 
 //Value Computed by CMake
-picow_freertos_BINARY_DIR:STATIC=C:/Users/Elcio.SAMSUNGBOOK-2DE/Desktop/projeto_final_freertos/build
+picow_freertos_BINARY_DIR:STATIC=C:/Users/Elcio.SAMSUNGBOOK-2DE/Desktop/projeto_final_freertos/build/src
 
 //Value Computed by CMake
-picow_freertos_IS_TOP_LEVEL:STATIC=ON
+picow_freertos_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-picow_freertos_SOURCE_DIR:STATIC=C:/Users/Elcio.SAMSUNGBOOK-2DE/Desktop/projeto_final_freertos
+picow_freertos_SOURCE_DIR:STATIC=C:/Users/Elcio.SAMSUNGBOOK-2DE/Desktop/projeto_final_freertos/src
 
 
 ########################
@@ -476,7 +492,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=98
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=100
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -525,7 +541,7 @@ DOXYGEN_DOT_EXECUTABLE-ADVANCED:INTERNAL=1
 DOXYGEN_EXECUTABLE-ADVANCED:INTERNAL=1
 FAMILY_MCUS:INTERNAL=RP2040
 //Details about finding Python3
-FIND_PACKAGE_MESSAGE_DETAILS_Python3:INTERNAL=[C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/python/3.12.6/python.exe][cfound components: Interpreter ][v3.12.6()]
+FIND_PACKAGE_MESSAGE_DETAILS_Python3:INTERNAL=[C:/Users/Elcio.SAMSUNGBOOK-2DE/AppData/Local/Programs/Python/Python313/python.exe][cfound components: Interpreter ][v3.13.2()]
 PICO_32BIT:INTERNAL=1
 PICO_ARM:INTERNAL=1
 PICO_BOOT_STAGE2_DIR:INTERNAL=C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2040/boot_stage2
@@ -554,10 +570,11 @@ PICO_TOOLS_DIR:INTERNAL=C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/tools
 _Python3_Compiler_REASON_FAILURE:INTERNAL=
 //Development reason failure
 _Python3_Development_REASON_FAILURE:INTERNAL=
-_Python3_EXECUTABLE:INTERNAL=C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/python/3.12.6/python.exe
+//Path to a program.
+_Python3_EXECUTABLE:INTERNAL=C:/Users/Elcio.SAMSUNGBOOK-2DE/AppData/Local/Programs/Python/Python313/python.exe
 //Python3 Properties
-_Python3_INTERPRETER_PROPERTIES:INTERNAL=Python;3;12;6;32;64;;;abi3;C:\Users\Elcio.SAMSUNGBOOK-2DE\.pico-sdk\python\3.12.6\Lib;C:\Users\Elcio.SAMSUNGBOOK-2DE\.pico-sdk\python\3.12.6\Lib;C:\Users\Elcio.SAMSUNGBOOK-2DE\.pico-sdk\python\3.12.6\Lib\site-packages;C:\Users\Elcio.SAMSUNGBOOK-2DE\.pico-sdk\python\3.12.6\Lib\site-packages
-_Python3_INTERPRETER_SIGNATURE:INTERNAL=e94a7a9b7c991937d2748f3eaf83fe66
+_Python3_INTERPRETER_PROPERTIES:INTERNAL=Python;3;13;2;32;64;;;abi3;C:\Users\Elcio.SAMSUNGBOOK-2DE\AppData\Local\Programs\Python\Python313\Lib;C:\Users\Elcio.SAMSUNGBOOK-2DE\AppData\Local\Programs\Python\Python313\Lib;C:\Users\Elcio.SAMSUNGBOOK-2DE\AppData\Local\Programs\Python\Python313\Lib\site-packages;C:\Users\Elcio.SAMSUNGBOOK-2DE\AppData\Local\Programs\Python\Python313\Lib\site-packages
+_Python3_INTERPRETER_SIGNATURE:INTERNAL=faae5d33c47e960245350f7e90ce04b4
 //NumPy reason failure
 _Python3_NumPy_REASON_FAILURE:INTERNAL=
 
