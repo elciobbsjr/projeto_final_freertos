@@ -219,3 +219,11 @@
 17	1063	7735343700991117	build.ninja	d78d388956bd096d
 56	197	7735343702641235	src/CMakeFiles/picow_freertos.dir/utils_print.c.obj	955ea9c5eb2a1440
 198	664	7735343704060058	picow_freertos.elf	5111ce60206dc3e9
+42	217	7735346139744584	src/CMakeFiles/picow_freertos.dir/tasks/task_distancia_vl53l0x.c.obj	8c19754c9295801f
+218	684	7735346141510010	picow_freertos.elf	5111ce60206dc3e9
+55	268	7735346950400256	src/CMakeFiles/picow_freertos.dir/tasks/task_giroscopio_mpu6500.c.obj	3d7fbc051e41e993
+269	741	7735346952534865	picow_freertos.elf	5111ce60206dc3e9
+55	406	7735348913477281	src/CMakeFiles/picow_freertos.dir/tasks/task_oximetro_max30102.c.obj	7d16801d52e47fac
+407	932	7735348917002625	picow_freertos.elf	5111ce60206dc3e9
+45	259	7735350755978358	src/CMakeFiles/picow_freertos.dir/tasks/task_temperatura_aht10.c.obj	acf021d7da4fed84
+260	849	7735350758120764	picow_freertos.elf	5111ce60206dc3e9

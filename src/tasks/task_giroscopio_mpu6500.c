@@ -4,7 +4,7 @@
 #include "mpu6500.h"
 #include "hardware/i2c.h"
 #include "config_geral.h"
-#include "utils_print.h"
+#include "utils_print.h"  // safe_printf
 
 void task_giroscopio_mpu6500(void *pvParameters) {
     static float giros_z[100];
@@ -21,7 +21,10 @@ void task_giroscopio_mpu6500(void *pvParameters) {
             float soma = 0;
             for (int i = 0; i < 100; i++) soma += giros_z[i];
             float media = soma / 100.0f;
-            printf("[MPU6500] Média do Giroscópio Z: %.2f °/s\n", media);
+
+            // ✅ Usa printf protegido por mutex
+            safe_printf("[MPU6500] Média do Giroscópio Z: %.2f °/s\n", media);
+
             idx = 0;
         }
 
