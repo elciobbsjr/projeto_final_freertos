@@ -6,10 +6,13 @@
 #include "hardware/i2c.h"
 #include "vl53l0x.h"
 
+extern SemaphoreHandle_t print_mutex;
+
+
 // === I2C (Sensores) ===
 #define I2C0_PORT           i2c0
-#define I2C0_SDA_PIN        8
-#define I2C0_SCL_PIN        9
+#define I2C0_SDA_PIN        0
+#define I2C0_SCL_PIN        1
 
 #define I2C1_PORT           i2c1
 #define I2C1_SDA_PIN        2

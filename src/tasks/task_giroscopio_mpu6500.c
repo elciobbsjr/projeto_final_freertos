@@ -4,6 +4,7 @@
 #include "mpu6500.h"
 #include "hardware/i2c.h"
 #include "config_geral.h"
+#include "utils_print.h"
 
 void task_giroscopio_mpu6500(void *pvParameters) {
     static float giros_z[100];

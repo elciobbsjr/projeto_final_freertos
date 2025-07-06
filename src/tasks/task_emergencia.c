@@ -4,6 +4,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "semphr.h"
+#include "utils_print.h"
 
 #include "config_geral.h"
 #include "task_emergencia.h"

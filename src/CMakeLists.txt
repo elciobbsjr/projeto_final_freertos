@@ -19,6 +19,8 @@ add_executable(picow_freertos
     # Arquivos principais
     main.c
     config_geral.c
+    utils_print.c
+
 
     # Tarefas
     tasks/task_giroscopio_mpu6500.c
@@ -26,6 +28,7 @@ add_executable(picow_freertos
     tasks/task_distancia_vl53l0x.c
     tasks/task_emergencia.c
     tasks/task_wifi.c
+    tasks/task_oximetro_max30102.c        # ✅ Nova task adicionada
 
     # Drivers
     drivers/mpu6500.c

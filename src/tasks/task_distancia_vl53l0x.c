@@ -3,6 +3,7 @@
 #include "task.h"
 #include "task_distancia_vl53l0x.h"
 #include "config_geral.h"
+#include "utils_print.h"
 
 extern SemaphoreHandle_t i2c1_mutex;
 extern vl53l0x_dev vl53;  // DECLARAÇÃO (externa)

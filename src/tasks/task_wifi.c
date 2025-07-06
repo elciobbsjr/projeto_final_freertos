@@ -3,6 +3,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "pico/cyw43_arch.h"
+#include "utils_print.h"
 
 void task_wifi(void *pvParameters) {
     if (cyw43_arch_init()) {

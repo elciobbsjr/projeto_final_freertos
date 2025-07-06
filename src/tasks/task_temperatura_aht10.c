@@ -3,6 +3,7 @@
 #include "task.h"
 #include "aht10.h"
 #include "task_temperatura_aht10.h"
+#include "utils_print.h"
 
 aht10_data_t latest_aht10 = {0};
 extern SemaphoreHandle_t i2c1_mutex;

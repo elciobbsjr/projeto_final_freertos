@@ -14,6 +14,8 @@ SemaphoreHandle_t i2c1_mutex;
 SemaphoreHandle_t emergencia_semaforo;
 volatile bool emergencia_ativa = false;
 
+
+
 void config_geral_init(void) {
     // === Inicializa I2C0 (MPU6500) ===
     i2c_init(I2C0_PORT, 400 * 1000);
@@ -22,6 +24,9 @@ void config_geral_init(void) {
     gpio_pull_up(I2C0_SDA_PIN);
     gpio_pull_up(I2C0_SCL_PIN);
 
+    print_mutex = xSemaphoreCreateMutex();
+
+    
     // === Inicializa I2C1 (AHT10 + VL53L0X) ===
     i2c_init(I2C1_PORT, 100 * 1000);
     gpio_set_function(I2C1_SDA_PIN, GPIO_FUNC_I2C);

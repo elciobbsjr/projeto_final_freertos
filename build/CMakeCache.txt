@@ -343,6 +343,9 @@ PICO_STDIO_UART:BOOL=ON
 //Globally enable stdio USB
 PICO_STDIO_USB:BOOL=OFF
 
+//No help, variable specified on the command line.
+Python3_EXECUTABLE:UNINITIALIZED=C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/python/3.12.6/python.exe
+
 //Value Computed by CMake
 pico_extras_BINARY_DIR:STATIC=C:/Users/Elcio.SAMSUNGBOOK-2DE/Desktop/projeto_final_freertos/build/src/pico_extras
 
@@ -541,7 +544,7 @@ DOXYGEN_DOT_EXECUTABLE-ADVANCED:INTERNAL=1
 DOXYGEN_EXECUTABLE-ADVANCED:INTERNAL=1
 FAMILY_MCUS:INTERNAL=RP2040
 //Details about finding Python3
-FIND_PACKAGE_MESSAGE_DETAILS_Python3:INTERNAL=[C:/Users/Elcio.SAMSUNGBOOK-2DE/AppData/Local/Programs/Python/Python313/python.exe][cfound components: Interpreter ][v3.13.2()]
+FIND_PACKAGE_MESSAGE_DETAILS_Python3:INTERNAL=[C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/python/3.12.6/python.exe][cfound components: Interpreter ][v3.12.6()]
 PICO_32BIT:INTERNAL=1
 PICO_ARM:INTERNAL=1
 PICO_BOOT_STAGE2_DIR:INTERNAL=C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2040/boot_stage2
@@ -570,11 +573,10 @@ PICO_TOOLS_DIR:INTERNAL=C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/tools
 _Python3_Compiler_REASON_FAILURE:INTERNAL=
 //Development reason failure
 _Python3_Development_REASON_FAILURE:INTERNAL=
-//Path to a program.
-_Python3_EXECUTABLE:INTERNAL=C:/Users/Elcio.SAMSUNGBOOK-2DE/AppData/Local/Programs/Python/Python313/python.exe
+_Python3_EXECUTABLE:INTERNAL=C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/python/3.12.6/python.exe
 //Python3 Properties
-_Python3_INTERPRETER_PROPERTIES:INTERNAL=Python;3;13;2;32;64;;;abi3;C:\Users\Elcio.SAMSUNGBOOK-2DE\AppData\Local\Programs\Python\Python313\Lib;C:\Users\Elcio.SAMSUNGBOOK-2DE\AppData\Local\Programs\Python\Python313\Lib;C:\Users\Elcio.SAMSUNGBOOK-2DE\AppData\Local\Programs\Python\Python313\Lib\site-packages;C:\Users\Elcio.SAMSUNGBOOK-2DE\AppData\Local\Programs\Python\Python313\Lib\site-packages
-_Python3_INTERPRETER_SIGNATURE:INTERNAL=faae5d33c47e960245350f7e90ce04b4
+_Python3_INTERPRETER_PROPERTIES:INTERNAL=Python;3;12;6;32;64;;;abi3;C:\Users\Elcio.SAMSUNGBOOK-2DE\.pico-sdk\python\3.12.6\Lib;C:\Users\Elcio.SAMSUNGBOOK-2DE\.pico-sdk\python\3.12.6\Lib;C:\Users\Elcio.SAMSUNGBOOK-2DE\.pico-sdk\python\3.12.6\Lib\site-packages;C:\Users\Elcio.SAMSUNGBOOK-2DE\.pico-sdk\python\3.12.6\Lib\site-packages
+_Python3_INTERPRETER_SIGNATURE:INTERNAL=e94a7a9b7c991937d2748f3eaf83fe66
 //NumPy reason failure
 _Python3_NumPy_REASON_FAILURE:INTERNAL=
 
