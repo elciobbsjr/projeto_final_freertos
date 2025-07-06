@@ -72,3 +72,4 @@ void config_geral_init(void) {
         vl53l0x_start_continuous(&vl53, 0);
     }
 }
+//config
