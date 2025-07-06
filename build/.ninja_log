@@ -283,3 +283,14 @@
 60	430	7734702561402566	src/CMakeFiles/picow_freertos.dir/tasks/task_giroscopio_mpu6500.c.obj	7c53a6bc565f61b5
 51	502	7734702561301878	src/CMakeFiles/picow_freertos.dir/config_geral.c.obj	4dda80db8dd7966d
 86	454	7734702561649231	src/CMakeFiles/picow_freertos.dir/tasks/task_emergencia.c.obj	83a1d73a81dc56a7
+176	486	7735245667413000	src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/croutine.c.obj	16eb55b47861d0af
+147	609	7735245667129141	src/CMakeFiles/picow_freertos.dir/tasks/task_temperatura_aht10.c.obj	306aa8cb38a9f239
+139	625	7735245667050802	src/CMakeFiles/picow_freertos.dir/tasks/task_giroscopio_mpu6500.c.obj	7c53a6bc565f61b5
+120	633	7735245666865813	src/CMakeFiles/picow_freertos.dir/main.c.obj	35691c57de022d92
+129	640	7735245666950765	src/CMakeFiles/picow_freertos.dir/config_geral.c.obj	4dda80db8dd7966d
+169	649	7735245667345888	src/CMakeFiles/picow_freertos.dir/drivers/aht10.c.obj	276d45e9384829d4
+156	650	7735245667222349	src/CMakeFiles/picow_freertos.dir/tasks/task_distancia_vl53l0x.c.obj	81d1263e1f5a7cbe
+163	651	7735245667292447	src/CMakeFiles/picow_freertos.dir/tasks/task_emergencia.c.obj	83a1d73a81dc56a7
+188	782	7735245667544451	src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/stream_buffer.c.obj	6efad99bcfba85df
+183	880	7735245667473110	src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/queue.c.obj	9c264335c53c7b8c
+880	3481	7735245674460340	picow_freertos.elf	77b5db774f337770

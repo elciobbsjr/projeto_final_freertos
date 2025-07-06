@@ -45,15 +45,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  20 .debug_rnglists 000059f4  00000000  00000000  00062320  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line   00036958  00000000  00000000  00067d14  2**0
+ 21 .debug_line   00036955  00000000  00000000  00067d14  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_str    0000caae  00000000  00000000  0009e66c  2**0
+ 22 .debug_str    0000caae  00000000  00000000  0009e669  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 23 .debug_frame  000048a4  00000000  00000000  000ab11c  2**2
+ 23 .debug_frame  000048a4  00000000  00000000  000ab118  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 24 .debug_loclists 00026849  00000000  00000000  000af9c0  2**0
+ 24 .debug_loclists 00026849  00000000  00000000  000af9bc  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 25 .debug_line_str 000003ca  00000000  00000000  000d6209  2**0
+ 25 .debug_line_str 000003ca  00000000  00000000  000d6205  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 C:/Users/Elcio.SAMSUNGBOOK-2DE/Desktop/projeto_final_freertos/build/picow_freertos.elf:     file format elf32-littlearm

@@ -1969,7 +1969,7 @@ Discarded input sections
                 0x00000000       0xc0 src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/stream_buffer.c.obj
  .debug_rnglists
                 0x00000000      0x1de src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/stream_buffer.c.obj
- .debug_line    0x00000000     0x16ae src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/stream_buffer.c.obj
+ .debug_line    0x00000000     0x16ad src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/stream_buffer.c.obj
  .debug_str     0x00000000      0xa30 src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/stream_buffer.c.obj
  .comment       0x00000000       0x46 src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/stream_buffer.c.obj
  .debug_frame   0x00000000      0x25c src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/stream_buffer.c.obj
@@ -5309,7 +5309,7 @@ LOAD linker stubs
  .debug_rnglists
                 0x000056ea      0x30a src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_multicore/multicore.c.obj
 
-.debug_line     0x00000000    0x36958
+.debug_line     0x00000000    0x36955
  .debug_line    0x00000000      0x388 src/CMakeFiles/picow_freertos.dir/main.c.obj
  .debug_line    0x00000388      0x7d2 src/CMakeFiles/picow_freertos.dir/config_geral.c.obj
  .debug_line    0x00000b5a      0x4be src/CMakeFiles/picow_freertos.dir/tasks/task_giroscopio_mpu6500.c.obj
@@ -5373,11 +5373,11 @@ LOAD linker stubs
  .debug_line    0x000298f5     0x162e src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c.obj
  .debug_line    0x0002af23      0xb39 src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/event_groups.c.obj
  .debug_line    0x0002ba5c      0x451 src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/list.c.obj
- .debug_line    0x0002bead     0x2a18 src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/queue.c.obj
- .debug_line    0x0002e8c5     0x5363 src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
- .debug_line    0x00033c28     0x1009 src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
- .debug_line    0x00034c31      0x63c src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_exception/exception.c.obj
- .debug_line    0x0003526d     0x16eb src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_multicore/multicore.c.obj
+ .debug_line    0x0002bead     0x2a15 src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/queue.c.obj
+ .debug_line    0x0002e8c2     0x5363 src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
+ .debug_line    0x00033c25     0x1009 src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
+ .debug_line    0x00034c2e      0x63c src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_exception/exception.c.obj
+ .debug_line    0x0003526a     0x16eb src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_multicore/multicore.c.obj
 
 .debug_str      0x00000000     0xcaae
  .debug_str     0x00000000     0xcaae src/CMakeFiles/picow_freertos.dir/main.c.obj
