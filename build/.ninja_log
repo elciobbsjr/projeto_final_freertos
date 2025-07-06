@@ -294,3 +294,5 @@
 188	782	7735245667544451	src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/stream_buffer.c.obj	6efad99bcfba85df
 183	880	7735245667473110	src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/queue.c.obj	9c264335c53c7b8c
 880	3481	7735245674460340	picow_freertos.elf	77b5db774f337770
+66	271	7735251103078545	src/CMakeFiles/picow_freertos.dir/config_geral.c.obj	4dda80db8dd7966d
+272	621	7735251105146543	picow_freertos.elf	77b5db774f337770
