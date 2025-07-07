@@ -465,3 +465,9 @@
 340	865	7736323847857795	picow_freertos.elf	5111ce60206dc3e9
 50	292	7736333536292709	src/CMakeFiles/picow_freertos.dir/tasks/task_oximetro_max30102.c.obj	7d16801d52e47fac
 293	806	7736333538787596	picow_freertos.elf	5111ce60206dc3e9
+38	239	7736340150635926	src/CMakeFiles/picow_freertos.dir/tasks/task_giroscopio_mpu6500.c.obj	3d7fbc051e41e993
+240	750	7736340152651109	picow_freertos.elf	5111ce60206dc3e9
+47	241	7736341186216294	src/CMakeFiles/picow_freertos.dir/tasks/task_giroscopio_mpu6500.c.obj	3d7fbc051e41e993
+244	730	7736341188184580	picow_freertos.elf	5111ce60206dc3e9
+43	260	7736342452110786	src/CMakeFiles/picow_freertos.dir/tasks/task_giroscopio_mpu6500.c.obj	3d7fbc051e41e993
+261	736	7736342454314271	picow_freertos.elf	5111ce60206dc3e9
