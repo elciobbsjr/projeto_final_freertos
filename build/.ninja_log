@@ -471,3 +471,5 @@
 244	730	7736341188184580	picow_freertos.elf	5111ce60206dc3e9
 43	260	7736342452110786	src/CMakeFiles/picow_freertos.dir/tasks/task_giroscopio_mpu6500.c.obj	3d7fbc051e41e993
 261	736	7736342454314271	picow_freertos.elf	5111ce60206dc3e9
+55	275	7736346244392203	src/CMakeFiles/picow_freertos.dir/tasks/task_distancia_vl53l0x.c.obj	8c19754c9295801f
+276	775	7736346246624869	picow_freertos.elf	5111ce60206dc3e9
