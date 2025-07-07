@@ -51,6 +51,10 @@ void task_oximetro_max30102(void *params) {
     int spo2_amostras = 0;
 
     TickType_t t_inicio = xTaskGetTickCount();
+    TickType_t t_inicio_bpm_anormal = 0;
+    TickType_t t_ultimo_batimento = xTaskGetTickCount();
+
+    bool em_bpm_anormal = false;
 
     while (1) {
         if (read_fifo(&ir, &red)) {
@@ -58,6 +62,7 @@ void task_oximetro_max30102(void *params) {
             if (!pulso_subiu && ir > ir_anterior && (ir - ir_anterior) > 1000) {
                 batimentos++;
                 pulso_subiu = true;
+                t_ultimo_batimento = xTaskGetTickCount();  // Atualiza último batimento
             } else if (ir < ir_anterior) {
                 pulso_subiu = false;
             }
@@ -75,13 +80,31 @@ void task_oximetro_max30102(void *params) {
             }
         }
 
-        // Verifica se 60s se passaram
         TickType_t agora = xTaskGetTickCount();
+
+        // Verifica se 60s se passaram
         if ((agora - t_inicio) >= pdMS_TO_TICKS(60000)) {
             int bpm_medio = batimentos;  // batimentos em 60s = bpm
             int spo2_medio = spo2_amostras ? (int)(spo2_soma / spo2_amostras) : 0;
 
             safe_printf("📊 [MÉDIA 60s] BPM: %d | SpO2: %d%%\n", bpm_medio, spo2_medio);
+
+            // 📏 Regra 1: Alerta se BPM < 50 ou > 100 por mais de 15s
+            if (bpm_medio < 50 || bpm_medio > 100) {
+                if (!em_bpm_anormal) {
+                    t_inicio_bpm_anormal = agora;
+                    em_bpm_anormal = true;
+                } else if ((agora - t_inicio_bpm_anormal) >= pdMS_TO_TICKS(15000)) {
+                    safe_printf("🚨 [ALERTA] Frequência cardíaca anormal por mais de 15s! BPM: %d\n", bpm_medio);
+                }
+            } else {
+                em_bpm_anormal = false;
+            }
+
+            // 📏 Regra 2: Alerta se nenhum batimento por 10s
+            if ((agora - t_ultimo_batimento) >= pdMS_TO_TICKS(10000)) {
+                safe_printf("⚠️ [AVISO] Nenhum batimento detectado nos últimos 10s. Verifique o sensor!\n");
+            }
 
             // Reset contadores
             batimentos = 0;
@@ -90,6 +113,6 @@ void task_oximetro_max30102(void *params) {
             t_inicio = agora;
         }
 
-        vTaskDelay(pdMS_TO_TICKS(100));  // 10 Hz
+        vTaskDelay(pdMS_TO_TICKS(100));  // Frequência de leitura: 10 Hz
     }
 }
