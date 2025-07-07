@@ -6,7 +6,6 @@
 #include "utils_print.h"
 #include <stdlib.h>
 
-
 extern SemaphoreHandle_t i2c1_mutex;
 extern vl53l0x_dev vl53;
 
@@ -14,6 +13,9 @@ void task_distancia_vl53l0x(void *pvParameters) {
     static uint16_t ultima_distancia = 0;
     static bool erro_anterior = false;
     static bool alerta_anterior = false;
+
+    TickType_t tempo_inicio_proximidade = 0;
+    bool em_proximidade = false;
 
     while (1) {
         if (xSemaphoreTake(i2c1_mutex, pdMS_TO_TICKS(100))) {
@@ -27,15 +29,39 @@ void task_distancia_vl53l0x(void *pvParameters) {
             } else {
                 erro_anterior = false;
 
+                // Impressão da distância se houver variação significativa
                 if (distancia > 300) {
                     safe_printf("[VL53L0X] Fora de alcance (>30 cm).\n");
                 } else if (abs(distancia - ultima_distancia) > 10) {
                     safe_printf("[VL53L0X] Distância: %d mm\n", distancia);
-                    ultima_distancia = distancia;
                 }
 
+                // 📏 Regra 1: distância < 200mm por mais de 5s
+                if (distancia < 200) {
+                    if (!em_proximidade) {
+                        tempo_inicio_proximidade = xTaskGetTickCount();
+                        em_proximidade = true;
+                    } else {
+                        // Verifica se já passou 5 segundos (5000ms)
+                        if ((xTaskGetTickCount() - tempo_inicio_proximidade) >= pdMS_TO_TICKS(5000)) {
+                            safe_printf("[ALERTA] Objeto muito próximo por mais de 5s! Risco de esbarrar ou cair.\n");
+                        }
+                    }
+                } else {
+                    em_proximidade = false;
+                }
+
+                // 📏 Regra 2: movimento brusco (de <10cm para >30cm)
+                if (distancia > 300 && ultima_distancia < 100) {
+                    safe_printf("[ALERTA] Movimento brusco detectado (afastamento rápido ou queda).\n");
+                }
+
+                // Atualização do estado anterior
+                ultima_distancia = distancia;
+
+                // Alertas de presença simples (opcional)
                 if (distancia < 200 && !alerta_anterior) {
-                    safe_printf("[ALERTA] Objeto próximo detectado!\n");
+                    safe_printf("[INFO] Objeto próximo detectado.\n");
                     alerta_anterior = true;
                 } else if (distancia >= 200 && alerta_anterior) {
                     safe_printf("[INFO] Objeto afastado.\n");
@@ -46,6 +72,6 @@ void task_distancia_vl53l0x(void *pvParameters) {
             xSemaphoreGive(i2c1_mutex);
         }
 
-        vTaskDelay(pdMS_TO_TICKS(500));
+        vTaskDelay(pdMS_TO_TICKS(500));  // Amostragem a cada 500ms
     }
 }
