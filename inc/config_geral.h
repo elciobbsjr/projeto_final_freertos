@@ -8,7 +8,6 @@
 
 extern SemaphoreHandle_t print_mutex;
 
-
 // === I2C (Sensores) ===
 #define I2C0_PORT           i2c0
 #define I2C0_SDA_PIN        0
@@ -29,6 +28,7 @@ extern SemaphoreHandle_t print_mutex;
 
 // === Buzzer ===
 #define BUZZER_PIN          21  // Buzzer A via transistor
+#define BUZZER_B_PIN        10  // Buzzer B (direto)
 
 // === Variáveis globais ===
 extern vl53l0x_dev vl53;

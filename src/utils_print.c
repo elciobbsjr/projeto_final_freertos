@@ -3,7 +3,7 @@
 #include "FreeRTOS.h"
 #include "semphr.h"
 
-SemaphoreHandle_t print_mutex;
+extern SemaphoreHandle_t print_mutex;
 
 void safe_printf(const char *fmt, ...) {
     if (print_mutex != NULL) {

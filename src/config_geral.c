@@ -10,10 +10,10 @@
 
 // === Definições reais das variáveis globais ===
 vl53l0x_dev vl53;
+SemaphoreHandle_t print_mutex;
 SemaphoreHandle_t i2c1_mutex;
 SemaphoreHandle_t emergencia_semaforo;
 volatile bool emergencia_ativa = false;
-
 
 
 void config_geral_init(void) {
@@ -26,7 +26,6 @@ void config_geral_init(void) {
 
     print_mutex = xSemaphoreCreateMutex();
 
-    
     // === Inicializa I2C1 (AHT10 + VL53L0X) ===
     i2c_init(I2C1_PORT, 100 * 1000);
     gpio_set_function(I2C1_SDA_PIN, GPIO_FUNC_I2C);
@@ -43,15 +42,27 @@ void config_geral_init(void) {
     gpio_set_dir(BOTAO_B_PIN, GPIO_IN);
     gpio_pull_up(BOTAO_B_PIN);
 
-    // === Inicialização do LED vermelho ===
+    // === Inicialização do LED RGB ===
     gpio_init(LED_VERMELHO_PIN);
     gpio_set_dir(LED_VERMELHO_PIN, GPIO_OUT);
     gpio_put(LED_VERMELHO_PIN, 0);
 
-    // === Inicialização do buzzer A ===
-    gpio_init(BUZZER_PIN);
+    gpio_init(LED_VERDE_PIN);
+    gpio_set_dir(LED_VERDE_PIN, GPIO_OUT);
+    gpio_put(LED_VERDE_PIN, 0);
+
+    gpio_init(LED_AZUL_PIN);
+    gpio_set_dir(LED_AZUL_PIN, GPIO_OUT);
+    gpio_put(LED_AZUL_PIN, 0);
+
+    // === Inicialização dos Buzzers ===
+    gpio_init(BUZZER_PIN);  // Buzzer A
     gpio_set_dir(BUZZER_PIN, GPIO_OUT);
     gpio_put(BUZZER_PIN, 0);
+
+    gpio_init(BUZZER_B_PIN); // Buzzer B (adicionado)
+    gpio_set_dir(BUZZER_B_PIN, GPIO_OUT);
+    gpio_put(BUZZER_B_PIN, 0);
 
     // === Semáforos ===
     i2c1_mutex = xSemaphoreCreateMutex();
@@ -77,4 +88,3 @@ void config_geral_init(void) {
         vl53l0x_start_continuous(&vl53, 0);
     }
 }
-
