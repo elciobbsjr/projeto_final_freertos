@@ -29,11 +29,20 @@ void task_temperatura_aht10(void *pvParameters) {
     static int leituras_criticas = 0;
     static int leituras_normais = 0;
     static bool alerta_ativo = false;
+    static bool sensor_conectado = true;
 
     while (1) {
         if (xSemaphoreTake(i2c1_mutex, pdMS_TO_TICKS(100))) {
             aht10_data_t data;
-            if (aht10_read_data(I2C1_PORT, &data)) {
+            bool leitura_ok = aht10_read_data(I2C1_PORT, &data);
+
+            if (leitura_ok) {
+                // Reconexão detectada
+                if (!sensor_conectado) {
+                    safe_printf("[AHT10] Sensor reconectado com sucesso.\n");
+                    sensor_conectado = true;
+                }
+
                 latest_aht10 = data;
 
                 safe_printf("[AHT10] Temperatura: %.2f °C | Umidade: %.2f %%\n",
@@ -78,12 +87,18 @@ void task_temperatura_aht10(void *pvParameters) {
                 }
 
             } else {
-                safe_printf("[AHT10] Falha na leitura.\n");
+                if (sensor_conectado) {
+                    safe_printf("[AHT10] ERRO: Falha na leitura. Sensor possivelmente desconectado.\n");
+                    sensor_conectado = false;
+                }
+
+                // Tentativa de reinicialização do sensor
+                aht10_init(I2C1_PORT);
             }
 
             xSemaphoreGive(i2c1_mutex);
         }
 
-        vTaskDelay(pdMS_TO_TICKS(5000));
+        vTaskDelay(pdMS_TO_TICKS(5000));  // Intervalo entre leituras
     }
 }

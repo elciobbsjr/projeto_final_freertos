@@ -11,7 +11,6 @@ extern vl53l0x_dev vl53;
 
 void task_distancia_vl53l0x(void *pvParameters) {
     static uint16_t ultima_distancia = 0;
-    static bool erro_anterior = false;
     static bool alerta_anterior = false;
     static bool sensor_conectado = true;
 
@@ -22,29 +21,37 @@ void task_distancia_vl53l0x(void *pvParameters) {
         if (xSemaphoreTake(i2c1_mutex, pdMS_TO_TICKS(100))) {
             uint16_t distancia = vl53l0x_read_range_continuous_millimeters(&vl53);
 
-            if (distancia == 65535) {
-                // 🟥 Erro de leitura ou desconexão
+            bool erro_leitura = (distancia == 65535);       // timeout ou erro real
+            bool fora_do_alcance = (distancia > 2000);      // valor alto indica nada detectado (mas sensor OK)
+            bool leitura_valida = (!erro_leitura && !fora_do_alcance);
+
+            // Se falha real de leitura (desconectado ou travado)
+            if (erro_leitura) {
                 if (sensor_conectado) {
-                    safe_printf("[VL53L0X] ERRO: Sensor não respondeu ou desconectado (timeout).\n");
+                    safe_printf("[VL53L0X] ERRO: Sensor não respondeu ou desconectado (timeout ou valor inválido).\n");
                     sensor_conectado = false;
                 }
                 xSemaphoreGive(i2c1_mutex);
                 vTaskDelay(pdMS_TO_TICKS(1000));
-                continue; // Pula processamento
+                continue;
             }
 
-            // ✅ Sensor voltou a responder
-            if (!sensor_conectado) {
+            // Se o sensor voltou a responder (reconexão)
+            if (!sensor_conectado && leitura_valida) {
                 safe_printf("[VL53L0X] Sensor reconectado com sucesso.\n");
                 sensor_conectado = true;
             }
 
-            erro_anterior = false;
+            // Se está fora do alcance (sensor ok, sem objeto detectável)
+            if (fora_do_alcance) {
+                safe_printf("[VL53L0X] Fora de alcance (>30 cm).\n");
+                xSemaphoreGive(i2c1_mutex);
+                vTaskDelay(pdMS_TO_TICKS(500));
+                continue;
+            }
 
             // Impressão da distância se houver variação significativa
-            if (distancia > 300) {
-                safe_printf("[VL53L0X] Fora de alcance (>30 cm).\n");
-            } else if (abs(distancia - ultima_distancia) > 10) {
+            if (abs(distancia - ultima_distancia) > 10) {
                 safe_printf("[VL53L0X] Distância: %d mm\n", distancia);
             }
 
@@ -67,10 +74,10 @@ void task_distancia_vl53l0x(void *pvParameters) {
                 safe_printf("[ALERTA] Movimento brusco detectado (afastamento rápido ou queda).\n");
             }
 
-            // Atualização do estado anterior
+            // Atualiza distância anterior
             ultima_distancia = distancia;
 
-            // Alertas de presença simples (opcional)
+            // Alertas simples
             if (distancia < 200 && !alerta_anterior) {
                 safe_printf("[INFO] Objeto próximo detectado.\n");
                 alerta_anterior = true;

@@ -37,7 +37,7 @@ static void max30102_init() {
 }
 
 void task_oximetro_max30102(void *params) {
-    vTaskDelay(pdMS_TO_TICKS(1000));  // Aguarda USB/sistema
+    vTaskDelay(pdMS_TO_TICKS(1000));  // Aguarda sistema/USB
     max30102_init();
     vTaskDelay(pdMS_TO_TICKS(100));
     safe_printf("[MAX30102] Iniciando monitoramento (60s)...\n");
@@ -55,29 +55,63 @@ void task_oximetro_max30102(void *params) {
     TickType_t t_ultimo_batimento = xTaskGetTickCount();
 
     bool em_bpm_anormal = false;
+    bool sensor_conectado = true;
 
     while (1) {
-        if (read_fifo(&ir, &red)) {
-            // Detectar pulso
-            if (!pulso_subiu && ir > ir_anterior && (ir - ir_anterior) > 1000) {
-                batimentos++;
-                pulso_subiu = true;
-                t_ultimo_batimento = xTaskGetTickCount();  // Atualiza último batimento
-            } else if (ir < ir_anterior) {
-                pulso_subiu = false;
-            }
-            ir_anterior = ir;
+        bool leitura_ok = read_fifo(&ir, &red);
 
-            // Calcular SpO2 instantâneo (simulado)
-            if (ir != 0) {
-                float ratio = red / (float)ir;
-                int spo2 = 110 - (int)(25.0f * ratio);
-                if (spo2 > 100) spo2 = 100;
-                if (spo2 < 70) spo2 = 70;
-
-                spo2_soma += spo2;
-                spo2_amostras++;
+        if (!leitura_ok) {
+            if (sensor_conectado) {
+                safe_printf("[MAX30102] ERRO: Falha na leitura. Sensor possivelmente desconectado.\n");
+                sensor_conectado = false;
             }
+
+            // Tenta reconectar a cada 2s
+            vTaskDelay(pdMS_TO_TICKS(2000));
+
+            // Tentativa de reinicialização
+            max30102_init();
+            vTaskDelay(pdMS_TO_TICKS(100));
+
+            // Testa nova leitura
+            if (read_fifo(&ir, &red)) {
+                safe_printf("[MAX30102] Sensor reconectado com sucesso e reinicializado.\n");
+                sensor_conectado = true;
+                t_inicio = xTaskGetTickCount();
+                t_ultimo_batimento = t_inicio;
+                batimentos = 0;
+                spo2_soma = 0;
+                spo2_amostras = 0;
+            }
+
+            continue;
+        }
+
+        // ⏱️ Processamento apenas se o sensor está OK
+        if (!sensor_conectado) {
+            vTaskDelay(pdMS_TO_TICKS(100));
+            continue;
+        }
+
+        // Detectar pulso
+        if (!pulso_subiu && ir > ir_anterior && (ir - ir_anterior) > 1000) {
+            batimentos++;
+            pulso_subiu = true;
+            t_ultimo_batimento = xTaskGetTickCount();  // Atualiza último batimento
+        } else if (ir < ir_anterior) {
+            pulso_subiu = false;
+        }
+        ir_anterior = ir;
+
+        // Calcular SpO2 instantâneo (simulado)
+        if (ir != 0) {
+            float ratio = red / (float)ir;
+            int spo2 = 110 - (int)(25.0f * ratio);
+            if (spo2 > 100) spo2 = 100;
+            if (spo2 < 70) spo2 = 70;
+
+            spo2_soma += spo2;
+            spo2_amostras++;
         }
 
         TickType_t agora = xTaskGetTickCount();
