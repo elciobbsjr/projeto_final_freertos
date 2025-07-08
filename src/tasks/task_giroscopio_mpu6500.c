@@ -13,6 +13,9 @@
 #define MPU6500_ADDR         0x68
 #define MPU6500_REG_WHO_AM_I 0x75
 
+// ✅ Adiciona a flag da emergência
+extern volatile bool emergencia_ativa;
+
 // ✅ Verifica se o sensor está presente lendo o WHO_AM_I
 bool mpu6500_check_whoami() {
     uint8_t reg = MPU6500_REG_WHO_AM_I;
@@ -34,7 +37,13 @@ void task_giroscopio_mpu6500(void *pvParameters) {
     bool sensor_conectado = true;
 
     while (1) {
-        // ✅ Verifica se o sensor está conectado via WHO_AM_I
+        // ✅ Pausa a execução se estiver em emergência
+        if (emergencia_ativa) {
+            vTaskDelay(pdMS_TO_TICKS(500));
+            continue;
+        }
+
+        // Verifica se o sensor está conectado via WHO_AM_I
         if (!mpu6500_check_whoami()) {
             if (sensor_conectado) {
                 safe_printf("[MPU6500] ERRO: Sensor não detectado (falha WHO_AM_I).\n");
@@ -47,7 +56,7 @@ void task_giroscopio_mpu6500(void *pvParameters) {
             sensor_conectado = true;
         }
 
-        // 🔄 Leitura normal do sensor
+        // Leitura do sensor
         mpu6500_data_t mpu_data;
         mpu6500_read_raw(i2c0, &mpu_data);
 
@@ -56,14 +65,14 @@ void task_giroscopio_mpu6500(void *pvParameters) {
         float accel_y = mpu_data.accel[1] / 16384.0f;
         float accel_z = mpu_data.accel[2] / 16384.0f;
 
-        // 📏 Regra 1: Detecção de queda
+        // Regra 1: Detecção de queda
         float delta_accel_z = accel_z - last_accel_z;
         if (delta_accel_z > LIMIAR_QUEDA_G || delta_accel_z < -LIMIAR_QUEDA_G) {
             safe_printf("[MPU6500] ALERTA: Possível queda detectada! (ΔZ: %.2fg)\n", delta_accel_z);
         }
         last_accel_z = accel_z;
 
-        // 📊 Coleta para cálculo da média do giroscópio
+        // Coleta para cálculo da média do giroscópio
         giros_z[idx++] = gyro_z;
 
         if (idx >= 100) {
@@ -73,7 +82,7 @@ void task_giroscopio_mpu6500(void *pvParameters) {
 
             safe_printf("[MPU6500] Média do Giroscópio Z: %.2f °/s\n", media_gyro_z);
 
-            // 📏 Regra 2: Imobilidade
+            // Regra 2: Imobilidade
             if (media_gyro_z > -0.5f && media_gyro_z < 0.5f) {
                 contador_imobilidade += 100;
                 if (contador_imobilidade >= AMOSTRAS_IMOBILIDADE) {
@@ -84,17 +93,17 @@ void task_giroscopio_mpu6500(void *pvParameters) {
                 contador_imobilidade = 0;
             }
 
-            idx = 0; // Reset para próxima média
+            idx = 0;
         }
 
-        // 📏 Regra 3: Agitação
+        // Regra 3: Agitação
         if (accel_x > 1.2f || accel_x < -1.2f || accel_y > 1.2f || accel_y < -1.2f) {
             contador_agitacao++;
         } else {
             contador_agitacao = 0;
         }
 
-        if (contador_agitacao >= 5) { // 5 leituras consecutivas = 500ms
+        if (contador_agitacao >= 5) {
             safe_printf("[MPU6500] ATENÇÃO: Atividade física intensa ou agitação detectada!\n");
             contador_agitacao = 0;
         }

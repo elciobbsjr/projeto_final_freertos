@@ -7,10 +7,12 @@
 #include "config_geral.h"
 #include "hardware/gpio.h"
 
+// 🔁 Flag da emergência
+extern volatile bool emergencia_ativa;
+
 aht10_data_t latest_aht10 = {0};
 extern SemaphoreHandle_t i2c1_mutex;
 
-// === Limiar configurável para testes ===
 #define TEMP_LIMITE_SUPERIOR    31.0f
 #define TEMP_LIMITE_INFERIOR    17.0f
 #define UMID_LIMITE_SUPERIOR    75.0f
@@ -32,12 +34,17 @@ void task_temperatura_aht10(void *pvParameters) {
     static bool sensor_conectado = true;
 
     while (1) {
+        // ✅ Pausar durante emergência
+        if (emergencia_ativa) {
+            vTaskDelay(pdMS_TO_TICKS(500));
+            continue;
+        }
+
         if (xSemaphoreTake(i2c1_mutex, pdMS_TO_TICKS(100))) {
             aht10_data_t data;
             bool leitura_ok = aht10_read_data(I2C1_PORT, &data);
 
             if (leitura_ok) {
-                // Reconexão detectada
                 if (!sensor_conectado) {
                     safe_printf("[AHT10] Sensor reconectado com sucesso.\n");
                     sensor_conectado = true;
@@ -92,7 +99,6 @@ void task_temperatura_aht10(void *pvParameters) {
                     sensor_conectado = false;
                 }
 
-                // Tentativa de reinicialização do sensor
                 aht10_init(I2C1_PORT);
             }
 

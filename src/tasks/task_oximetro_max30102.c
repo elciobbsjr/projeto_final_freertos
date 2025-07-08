@@ -10,6 +10,9 @@
 #define I2C_PORT i2c0
 #define MAX30102_ADDR 0x57
 
+// ✅ Flag de emergência
+extern volatile bool emergencia_ativa;
+
 static void write_reg(uint8_t reg, uint8_t val) {
     uint8_t buf[2] = {reg, val};
     i2c_write_blocking(I2C_PORT, MAX30102_ADDR, buf, 2, false);
@@ -58,6 +61,12 @@ void task_oximetro_max30102(void *params) {
     bool sensor_conectado = true;
 
     while (1) {
+        // ✅ Pausa durante emergência
+        if (emergencia_ativa) {
+            vTaskDelay(pdMS_TO_TICKS(500));
+            continue;
+        }
+
         bool leitura_ok = read_fifo(&ir, &red);
 
         if (!leitura_ok) {
@@ -66,14 +75,10 @@ void task_oximetro_max30102(void *params) {
                 sensor_conectado = false;
             }
 
-            // Tenta reconectar a cada 2s
             vTaskDelay(pdMS_TO_TICKS(2000));
-
-            // Tentativa de reinicialização
             max30102_init();
             vTaskDelay(pdMS_TO_TICKS(100));
 
-            // Testa nova leitura
             if (read_fifo(&ir, &red)) {
                 safe_printf("[MAX30102] Sensor reconectado com sucesso e reinicializado.\n");
                 sensor_conectado = true;
@@ -87,23 +92,20 @@ void task_oximetro_max30102(void *params) {
             continue;
         }
 
-        // ⏱️ Processamento apenas se o sensor está OK
         if (!sensor_conectado) {
             vTaskDelay(pdMS_TO_TICKS(100));
             continue;
         }
 
-        // Detectar pulso
         if (!pulso_subiu && ir > ir_anterior && (ir - ir_anterior) > 1000) {
             batimentos++;
             pulso_subiu = true;
-            t_ultimo_batimento = xTaskGetTickCount();  // Atualiza último batimento
+            t_ultimo_batimento = xTaskGetTickCount();
         } else if (ir < ir_anterior) {
             pulso_subiu = false;
         }
         ir_anterior = ir;
 
-        // Calcular SpO2 instantâneo (simulado)
         if (ir != 0) {
             float ratio = red / (float)ir;
             int spo2 = 110 - (int)(25.0f * ratio);
@@ -116,14 +118,12 @@ void task_oximetro_max30102(void *params) {
 
         TickType_t agora = xTaskGetTickCount();
 
-        // Verifica se 60s se passaram
         if ((agora - t_inicio) >= pdMS_TO_TICKS(60000)) {
-            int bpm_medio = batimentos;  // batimentos em 60s = bpm
+            int bpm_medio = batimentos;
             int spo2_medio = spo2_amostras ? (int)(spo2_soma / spo2_amostras) : 0;
 
             safe_printf("📊 [MÉDIA 60s] BPM: %d | SpO2: %d%%\n", bpm_medio, spo2_medio);
 
-            // 📏 Regra 1: Alerta se BPM < 50 ou > 100 por mais de 15s
             if (bpm_medio < 50 || bpm_medio > 100) {
                 if (!em_bpm_anormal) {
                     t_inicio_bpm_anormal = agora;
@@ -135,18 +135,16 @@ void task_oximetro_max30102(void *params) {
                 em_bpm_anormal = false;
             }
 
-            // 📏 Regra 2: Alerta se nenhum batimento por 10s
             if ((agora - t_ultimo_batimento) >= pdMS_TO_TICKS(10000)) {
                 safe_printf("⚠️ [AVISO] Nenhum batimento detectado nos últimos 10s. Verifique o sensor!\n");
             }
 
-            // Reset contadores
             batimentos = 0;
             spo2_soma = 0;
             spo2_amostras = 0;
             t_inicio = agora;
         }
 
-        vTaskDelay(pdMS_TO_TICKS(100));  // Frequência de leitura: 10 Hz
+        vTaskDelay(pdMS_TO_TICKS(100));  // 10 Hz
     }
 }
