@@ -7,22 +7,35 @@
 #include "config_geral.h"
 #include "hardware/gpio.h"
 
-// 🔁 Flag da emergência
 extern volatile bool emergencia_ativa;
 
 aht10_data_t latest_aht10 = {0};
 extern SemaphoreHandle_t i2c1_mutex;
 
-#define TEMP_LIMITE_SUPERIOR    31.0f
+#define TEMP_LIMITE_SUPERIOR    35.0f
 #define TEMP_LIMITE_INFERIOR    17.0f
-#define UMID_LIMITE_SUPERIOR    75.0f
+#define UMID_LIMITE_SUPERIOR    80.0f
 #define UMID_LIMITE_INFERIOR    29.0f
 
-void ativar_alerta_critico(bool ativar) {
-    gpio_put(LED_VERMELHO_PIN, ativar ? 1 : 0);
-    gpio_put(LED_VERDE_PIN, ativar ? 1 : 0); // Laranja = Vermelho + Verde
-    gpio_put(BUZZER_PIN, ativar ? 1 : 0);
-    gpio_put(BUZZER_B_PIN, ativar ? 1 : 0);
+// Controla o estado do alerta
+static bool alerta_ativo = false;
+static TickType_t ultima_piscada = 0;
+
+// 🔁 Função para piscar LED amarelo (2 vezes)
+void piscar_alerta_critico() {
+    TickType_t agora = xTaskGetTickCount();
+    if ((agora - ultima_piscada) >= pdMS_TO_TICKS(10000)) {
+        // Piscar 2 vezes
+        for (int i = 0; i < 2; i++) {
+            gpio_put(LED_VERMELHO_PIN, 1);
+            gpio_put(LED_VERDE_PIN, 1);
+            vTaskDelay(pdMS_TO_TICKS(200));
+            gpio_put(LED_VERMELHO_PIN, 0);
+            gpio_put(LED_VERDE_PIN, 0);
+            vTaskDelay(pdMS_TO_TICKS(200));
+        }
+        ultima_piscada = agora;
+    }
 }
 
 void task_temperatura_aht10(void *pvParameters) {
@@ -30,11 +43,9 @@ void task_temperatura_aht10(void *pvParameters) {
     static int temp_idx = 0;
     static int leituras_criticas = 0;
     static int leituras_normais = 0;
-    static bool alerta_ativo = false;
     static bool sensor_conectado = true;
 
     while (1) {
-        // ✅ Pausar durante emergência
         if (emergencia_ativa) {
             vTaskDelay(pdMS_TO_TICKS(500));
             continue;
@@ -75,14 +86,16 @@ void task_temperatura_aht10(void *pvParameters) {
 
                 if (leituras_criticas >= 3 && !alerta_ativo) {
                     safe_printf("[AHT10] ALERTA: Condições críticas detectadas!\n");
-                    ativar_alerta_critico(true);
                     alerta_ativo = true;
+                    ultima_piscada = xTaskGetTickCount();  // Inicia contador
                 }
 
                 if (leituras_normais >= 3 && alerta_ativo) {
                     safe_printf("[AHT10] ALERTA: Condição normalizada.\n");
-                    ativar_alerta_critico(false);
                     alerta_ativo = false;
+                    // Apagar LEDs ao sair do modo alerta
+                    gpio_put(LED_VERMELHO_PIN, 0);
+                    gpio_put(LED_VERDE_PIN, 0);
                 }
 
                 if (temp_idx >= 12) {
@@ -103,6 +116,10 @@ void task_temperatura_aht10(void *pvParameters) {
             }
 
             xSemaphoreGive(i2c1_mutex);
+        }
+
+        if (alerta_ativo) {
+            piscar_alerta_critico();  // 👈 Pisca se necessário
         }
 
         vTaskDelay(pdMS_TO_TICKS(5000));  // Intervalo entre leituras

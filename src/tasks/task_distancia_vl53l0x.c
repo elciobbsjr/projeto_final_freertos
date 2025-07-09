@@ -18,6 +18,7 @@ void task_distancia_vl53l0x(void *pvParameters) {
 
     TickType_t tempo_inicio_proximidade = 0;
     bool em_proximidade = false;
+    bool alerta_proximidade_emitido = false;  // Evita alertas repetidos
 
     while (1) {
         // 🔒 Verifica modo de emergência ativo e pausa se necessário
@@ -59,25 +60,31 @@ void task_distancia_vl53l0x(void *pvParameters) {
                 safe_printf("[VL53L0X] Distância: %d mm\n", distancia);
             }
 
+            // Verifica se objeto está muito próximo por mais de 5s
             if (distancia < 200) {
                 if (!em_proximidade) {
                     tempo_inicio_proximidade = xTaskGetTickCount();
                     em_proximidade = true;
+                    alerta_proximidade_emitido = false;
                 } else {
-                    if ((xTaskGetTickCount() - tempo_inicio_proximidade) >= pdMS_TO_TICKS(5000)) {
+                    if ((xTaskGetTickCount() - tempo_inicio_proximidade) >= pdMS_TO_TICKS(5000) && !alerta_proximidade_emitido) {
                         safe_printf("[ALERTA] Objeto muito próximo por mais de 5s! Risco de esbarrar ou cair.\n");
+                        alerta_proximidade_emitido = true;
                     }
                 }
             } else {
                 em_proximidade = false;
+                alerta_proximidade_emitido = false;
             }
 
+            // Detecta afastamento brusco (queda ou retirada rápida)
             if (distancia > 300 && ultima_distancia < 100) {
                 safe_printf("[ALERTA] Movimento brusco detectado (afastamento rápido ou queda).\n");
             }
 
             ultima_distancia = distancia;
 
+            // Avisos de presença e ausência de objeto próximo
             if (distancia < 200 && !alerta_anterior) {
                 safe_printf("[INFO] Objeto próximo detectado.\n");
                 alerta_anterior = true;

@@ -13,18 +13,28 @@
 #define MPU6500_ADDR         0x68
 #define MPU6500_REG_WHO_AM_I 0x75
 
-// ✅ Adiciona a flag da emergência
+// ✅ Flag de emergência
 extern volatile bool emergencia_ativa;
+
+// ✅ Mutex para uso exclusivo do barramento I2C1
+extern SemaphoreHandle_t i2c1_mutex;
 
 // ✅ Verifica se o sensor está presente lendo o WHO_AM_I
 bool mpu6500_check_whoami() {
     uint8_t reg = MPU6500_REG_WHO_AM_I;
     uint8_t id = 0;
 
-    if (i2c_write_blocking(i2c0, MPU6500_ADDR, &reg, 1, true) < 0) return false;
-    if (i2c_read_blocking(i2c0, MPU6500_ADDR, &id, 1, false) < 0) return false;
+    bool success = false;
 
-    return (id == 0x70 || id == 0x68);
+    if (xSemaphoreTake(i2c1_mutex, pdMS_TO_TICKS(100)) == pdTRUE) {
+        if (i2c_write_blocking(i2c1, MPU6500_ADDR, &reg, 1, true) >= 0 &&
+            i2c_read_blocking(i2c1, MPU6500_ADDR, &id, 1, false) >= 0) {
+            success = (id == 0x70 || id == 0x68);
+        }
+        xSemaphoreGive(i2c1_mutex);
+    }
+
+    return success;
 }
 
 void task_giroscopio_mpu6500(void *pvParameters) {
@@ -37,13 +47,11 @@ void task_giroscopio_mpu6500(void *pvParameters) {
     bool sensor_conectado = true;
 
     while (1) {
-        // ✅ Pausa a execução se estiver em emergência
         if (emergencia_ativa) {
             vTaskDelay(pdMS_TO_TICKS(500));
             continue;
         }
 
-        // Verifica se o sensor está conectado via WHO_AM_I
         if (!mpu6500_check_whoami()) {
             if (sensor_conectado) {
                 safe_printf("[MPU6500] ERRO: Sensor não detectado (falha WHO_AM_I).\n");
@@ -56,23 +64,28 @@ void task_giroscopio_mpu6500(void *pvParameters) {
             sensor_conectado = true;
         }
 
-        // Leitura do sensor
         mpu6500_data_t mpu_data;
-        mpu6500_read_raw(i2c0, &mpu_data);
+
+        // ✅ Protege leitura com mutex
+        if (xSemaphoreTake(i2c1_mutex, pdMS_TO_TICKS(100)) == pdTRUE) {
+            mpu6500_read_raw(i2c1, &mpu_data);
+            xSemaphoreGive(i2c1_mutex);
+        } else {
+            vTaskDelay(pdMS_TO_TICKS(100));
+            continue;
+        }
 
         float gyro_z = mpu_data.gyro[2] / 131.0f;
         float accel_x = mpu_data.accel[0] / 16384.0f;
         float accel_y = mpu_data.accel[1] / 16384.0f;
         float accel_z = mpu_data.accel[2] / 16384.0f;
 
-        // Regra 1: Detecção de queda
         float delta_accel_z = accel_z - last_accel_z;
         if (delta_accel_z > LIMIAR_QUEDA_G || delta_accel_z < -LIMIAR_QUEDA_G) {
             safe_printf("[MPU6500] ALERTA: Possível queda detectada! (ΔZ: %.2fg)\n", delta_accel_z);
         }
         last_accel_z = accel_z;
 
-        // Coleta para cálculo da média do giroscópio
         giros_z[idx++] = gyro_z;
 
         if (idx >= 100) {
@@ -82,7 +95,6 @@ void task_giroscopio_mpu6500(void *pvParameters) {
 
             safe_printf("[MPU6500] Média do Giroscópio Z: %.2f °/s\n", media_gyro_z);
 
-            // Regra 2: Imobilidade
             if (media_gyro_z > -0.5f && media_gyro_z < 0.5f) {
                 contador_imobilidade += 100;
                 if (contador_imobilidade >= AMOSTRAS_IMOBILIDADE) {
@@ -96,7 +108,6 @@ void task_giroscopio_mpu6500(void *pvParameters) {
             idx = 0;
         }
 
-        // Regra 3: Agitação
         if (accel_x > 1.2f || accel_x < -1.2f || accel_y > 1.2f || accel_y < -1.2f) {
             contador_agitacao++;
         } else {

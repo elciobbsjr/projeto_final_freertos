@@ -7,26 +7,40 @@
 #include <math.h>
 #include "utils_print.h"
 
-#define I2C_PORT i2c0
+#define I2C_PORT i2c1
 #define MAX30102_ADDR 0x57
 
 // ✅ Flag de emergência
 extern volatile bool emergencia_ativa;
 
+// ✅ Mutex para I2C1
+extern SemaphoreHandle_t i2c1_mutex;
+
 static void write_reg(uint8_t reg, uint8_t val) {
     uint8_t buf[2] = {reg, val};
-    i2c_write_blocking(I2C_PORT, MAX30102_ADDR, buf, 2, false);
+
+    if (xSemaphoreTake(i2c1_mutex, pdMS_TO_TICKS(100)) == pdTRUE) {
+        i2c_write_blocking(I2C_PORT, MAX30102_ADDR, buf, 2, false);
+        xSemaphoreGive(i2c1_mutex);
+    }
 }
 
 static bool read_fifo(uint32_t *ir, uint32_t *red) {
     uint8_t reg = 0x07;
     uint8_t buf[6];
-    if (i2c_write_blocking(I2C_PORT, MAX30102_ADDR, &reg, 1, true) < 0) return false;
-    if (i2c_read_blocking(I2C_PORT, MAX30102_ADDR, buf, 6, false) < 0) return false;
+    bool success = false;
 
-    *red = ((uint32_t)buf[0] << 16) | ((uint32_t)buf[1] << 8) | buf[2];
-    *ir  = ((uint32_t)buf[3] << 16) | ((uint32_t)buf[4] << 8) | buf[5];
-    return true;
+    if (xSemaphoreTake(i2c1_mutex, pdMS_TO_TICKS(100)) == pdTRUE) {
+        if (i2c_write_blocking(I2C_PORT, MAX30102_ADDR, &reg, 1, true) >= 0 &&
+            i2c_read_blocking(I2C_PORT, MAX30102_ADDR, buf, 6, false) >= 0) {
+            *red = ((uint32_t)buf[0] << 16) | ((uint32_t)buf[1] << 8) | buf[2];
+            *ir  = ((uint32_t)buf[3] << 16) | ((uint32_t)buf[4] << 8) | buf[5];
+            success = true;
+        }
+        xSemaphoreGive(i2c1_mutex);
+    }
+
+    return success;
 }
 
 static void max30102_init() {
