@@ -6,6 +6,7 @@
 #include "hardware/i2c.h"
 #include "vl53l0x.h"
 
+// === Mutex de impressão ===
 extern SemaphoreHandle_t print_mutex;
 
 // === I2C (Sensores) ===
@@ -27,8 +28,9 @@ extern SemaphoreHandle_t print_mutex;
 #define LED_AZUL_PIN        12
 
 // === Buzzer ===
-#define BUZZER_PIN          21  // Buzzer A via transistor
+#define BUZZER_PIN          21  // Buzzer A via transistor (PWM)
 #define BUZZER_B_PIN        10  // Buzzer B (direto)
+#define BUZZER_PWM_SLICE    pwm_gpio_to_slice_num(BUZZER_PIN)  // (opcional)
 
 // === Variáveis globais ===
 extern vl53l0x_dev vl53;

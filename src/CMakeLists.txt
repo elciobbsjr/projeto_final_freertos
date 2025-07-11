@@ -58,6 +58,7 @@ target_link_libraries(picow_freertos
     hardware_i2c
     FreeRTOS-Kernel
     pico_cyw43_arch_lwip_threadsafe_background
+    hardware_pwm
 )
 
 # Gera os arquivos .uf2, .hex e .bin

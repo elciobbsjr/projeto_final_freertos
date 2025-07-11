@@ -7,5 +7,6 @@ extern volatile bool emergencia_ativa;
 
 void gpio_callback(uint gpio, uint32_t events);
 void task_emergencia(void *pvParameters);
+void gpio_callback(uint gpio, uint32_t events);  // <-- Adicione isso
 
 #endif
