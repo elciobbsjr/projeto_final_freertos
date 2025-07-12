@@ -15,6 +15,7 @@ void task_distancia_vl53l0x(void *pvParameters) {
     static uint16_t ultima_distancia = 0;
     static bool alerta_anterior = false;
     static bool sensor_conectado = true;
+    static TickType_t ultima_msg_fora_alcance = 0;
 
     TickType_t tempo_inicio_proximidade = 0;
     bool em_proximidade = false;
@@ -50,7 +51,11 @@ void task_distancia_vl53l0x(void *pvParameters) {
             }
 
             if (fora_do_alcance) {
-                safe_printf("[VL53L0X] Fora de alcance (>30 cm).\n");
+                TickType_t agora = xTaskGetTickCount();
+                if ((agora - ultima_msg_fora_alcance) >= pdMS_TO_TICKS(5000)) {
+                    safe_printf("[VL53L0X] Fora de alcance (>30 cm).\n");
+                    ultima_msg_fora_alcance = agora;
+                }
                 xSemaphoreGive(i2c1_mutex);
                 vTaskDelay(pdMS_TO_TICKS(500));
                 continue;
