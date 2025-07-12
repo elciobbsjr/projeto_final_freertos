@@ -85,5 +85,6 @@
 #define PPP_DEBUG                   LWIP_DBG_OFF
 #define SLIP_DEBUG                  LWIP_DBG_OFF
 #define DHCP_DEBUG                  LWIP_DBG_OFF
+#define MEMP_NUM_SYS_TIMEOUT 16
 
 #endif /* __LWIPOPTS_H__ */

@@ -21,19 +21,22 @@ add_executable(picow_freertos
     config_geral.c
     utils_print.c
 
-
     # Tarefas
     tasks/task_giroscopio_mpu6500.c
     tasks/task_temperatura_aht10.c
     tasks/task_distancia_vl53l0x.c
     tasks/task_emergencia.c
     tasks/task_wifi.c
-    tasks/task_oximetro_max30102.c        # ✅ Nova task adicionada
+    tasks/task_oximetro_max30102.c
+    tasks/task_mqtt.c                    # ✅ Nova task adicionada
 
     # Drivers
     drivers/mpu6500.c
     drivers/aht10.c
     drivers/vl53l0x.c
+
+    # MQTT
+    mqtt_lwip.c                          # ✅ Cliente MQTT lwIP
 )
 
 # Define a saída do executável
@@ -48,17 +51,18 @@ target_sources(picow_freertos
 # Diretórios de includes
 target_include_directories(picow_freertos
     PRIVATE
-    ${CMAKE_CURRENT_LIST_DIR}             # src/
-    ${CMAKE_CURRENT_LIST_DIR}/../inc     # inc/ (onde está lwipopts.h)
+    ${CMAKE_CURRENT_LIST_DIR}            # src/
+    ${CMAKE_CURRENT_LIST_DIR}/../inc     # inc/ (headers .h, incluindo mqtt_lwip.h, task_mqtt.h)
 )
 
 # Vincula as bibliotecas necessárias
 target_link_libraries(picow_freertos 
     pico_stdlib
     hardware_i2c
+    hardware_pwm
     FreeRTOS-Kernel
     pico_cyw43_arch_lwip_threadsafe_background
-    hardware_pwm
+    pico_lwip_mqtt
 )
 
 # Gera os arquivos .uf2, .hex e .bin
