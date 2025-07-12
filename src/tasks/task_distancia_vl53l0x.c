@@ -1,12 +1,12 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "FreeRTOS.h"
 #include "task.h"
 #include "task_distancia_vl53l0x.h"
 #include "config_geral.h"
 #include "utils_print.h"
-#include <stdlib.h>
+#include "mqtt_lwip.h"  // ✅ Inclusão para publicar via MQTT
 
-// 🔁 IMPORTANTE: adicionar a flag da emergência
 extern volatile bool emergencia_ativa;
 extern SemaphoreHandle_t i2c1_mutex;
 extern vl53l0x_dev vl53;
@@ -19,10 +19,9 @@ void task_distancia_vl53l0x(void *pvParameters) {
 
     TickType_t tempo_inicio_proximidade = 0;
     bool em_proximidade = false;
-    bool alerta_proximidade_emitido = false;  // Evita alertas repetidos
+    bool alerta_proximidade_emitido = false;
 
     while (1) {
-        // 🔒 Verifica modo de emergência ativo e pausa se necessário
         if (emergencia_ativa) {
             vTaskDelay(pdMS_TO_TICKS(500));
             continue;
@@ -61,11 +60,17 @@ void task_distancia_vl53l0x(void *pvParameters) {
                 continue;
             }
 
-            if (abs(distancia - ultima_distancia) > 10) {
-                safe_printf("[VL53L0X] Distância: %d mm\n", distancia);
+            // ✅ Sempre imprime e publica distância válida
+            safe_printf("[VL53L0X] Distância: %d mm\n", distancia);
+
+            if (cliente_mqtt_esta_conectado()) {
+                char payload[32];
+                snprintf(payload, sizeof(payload), "%d", distancia);
+                safe_printf("[MQTT DEBUG] Publicando: %s\n", payload);  // 🔍 LOG ADICIONADO AQUI
+                publicar_mensagem_mqtt("sensor/vl53l0x/distancia", payload);
             }
 
-            // Verifica se objeto está muito próximo por mais de 5s
+            // Alerta por proximidade prolongada
             if (distancia < 200) {
                 if (!em_proximidade) {
                     tempo_inicio_proximidade = xTaskGetTickCount();
@@ -82,14 +87,12 @@ void task_distancia_vl53l0x(void *pvParameters) {
                 alerta_proximidade_emitido = false;
             }
 
-            // Detecta afastamento brusco (queda ou retirada rápida)
             if (distancia > 300 && ultima_distancia < 100) {
                 safe_printf("[ALERTA] Movimento brusco detectado (afastamento rápido ou queda).\n");
             }
 
             ultima_distancia = distancia;
 
-            // Avisos de presença e ausência de objeto próximo
             if (distancia < 200 && !alerta_anterior) {
                 safe_printf("[INFO] Objeto próximo detectado.\n");
                 alerta_anterior = true;
