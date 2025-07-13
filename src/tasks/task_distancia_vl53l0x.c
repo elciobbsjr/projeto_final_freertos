@@ -57,7 +57,7 @@ void task_distancia_vl53l0x(void *pvParameters) {
             if (fora_do_alcance) {
                 TickType_t agora = xTaskGetTickCount();
                 if ((agora - ultima_msg_fora_alcance) >= pdMS_TO_TICKS(5000)) {
-                    safe_printf("[VL53L0X] Fora de alcance (>30 cm).\n");
+                    //safe_printf("[VL53L0X] Fora de alcance (>30 cm).\n");
                     ultima_msg_fora_alcance = agora;
                 }
                 xSemaphoreGive(i2c1_mutex);
@@ -66,7 +66,7 @@ void task_distancia_vl53l0x(void *pvParameters) {
             }
 
             // Distância válida
-            safe_printf("[VL53L0X] Distância: %d mm\n", distancia);
+            //safe_printf("[VL53L0X] Distância: %d mm\n", distancia);
 
             if (cliente_mqtt_esta_conectado()) {
                 char payload[32];

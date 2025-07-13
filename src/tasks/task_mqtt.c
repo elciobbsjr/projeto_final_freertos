@@ -16,11 +16,17 @@ void tarefa_mqtt(void *pvParameters) {
     printf("[MQTT] Wi-Fi conectado, inicializando cliente MQTT...\n");
     iniciar_mqtt_cliente();
 
+    bool conectado_anteriormente = false;
+
     while (true) {
-        if (cliente_mqtt_esta_conectado()) {
+        bool conectado_agora = cliente_mqtt_esta_conectado();
+
+        if (conectado_agora && !conectado_anteriormente) {
             printf("[MQTT] ✅ Conectado ao broker MQTT em %s:%d\n", MQTT_BROKER_IP, MQTT_BROKER_PORT);
-        } else {
+            conectado_anteriormente = true;
+        } else if (!conectado_agora && conectado_anteriormente) {
             printf("[MQTT] ❌ Desconectado do broker. Tentando manter conexão...\n");
+            conectado_anteriormente = false;
         }
 
         vTaskDelay(pdMS_TO_TICKS(5000));  // Verifica a cada 5 segundos

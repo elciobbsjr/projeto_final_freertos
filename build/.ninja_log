@@ -244,3 +244,15 @@
 325	856	7740845438092237	picow_freertos.elf	7b0c16fa956008d0
 42	277	7740847615030124	src/CMakeFiles/picow_freertos.dir/tasks/task_temperatura_aht10.c.obj	3f0aba0cc5dcbb9a
 278	783	7740847617377486	picow_freertos.elf	7b0c16fa956008d0
+52	263	7740853948458634	src/CMakeFiles/picow_freertos.dir/tasks/task_distancia_vl53l0x.c.obj	ca479e4876a7515f
+264	758	7740853950643190	picow_freertos.elf	7b0c16fa956008d0
+73	273	7740854393463449	src/CMakeFiles/picow_freertos.dir/tasks/task_giroscopio_mpu6500.c.obj	aeedc69a9099ee21
+274	799	7740854395550745	picow_freertos.elf	7b0c16fa956008d0
+89	333	7740856240349912	src/CMakeFiles/picow_freertos.dir/tasks/task_temperatura_aht10.c.obj	3f0aba0cc5dcbb9a
+334	936	7740856242827935	picow_freertos.elf	7b0c16fa956008d0
+53	250	7740857597763496	src/CMakeFiles/picow_freertos.dir/tasks/task_distancia_vl53l0x.c.obj	ca479e4876a7515f
+251	740	7740857599795095	picow_freertos.elf	7b0c16fa956008d0
+40	333	7740862921835623	src/CMakeFiles/picow_freertos.dir/tasks/task_mqtt.c.obj	e5a9581beca7d21e
+336	865	7740862924791728	picow_freertos.elf	7b0c16fa956008d0
+40	270	7740864273496970	src/CMakeFiles/picow_freertos.dir/tasks/task_temperatura_aht10.c.obj	3f0aba0cc5dcbb9a
+270	721	7740864275800287	picow_freertos.elf	7b0c16fa956008d0

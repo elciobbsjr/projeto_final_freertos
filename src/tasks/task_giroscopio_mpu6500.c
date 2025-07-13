@@ -106,7 +106,7 @@ void task_giroscopio_mpu6500(void *pvParameters) {
             for (int i = 0; i < 100; i++) soma += giros_z[i];
             float media_gyro_z = soma / 100.0f;
 
-            safe_printf("[MPU6500] Média do Giroscópio Z: %.2f °/s\n", media_gyro_z);
+            //safe_printf("[MPU6500] Média do Giroscópio Z: %.2f °/s\n", media_gyro_z);
 
             // === 🚨 Imobilidade
             if (media_gyro_z > -0.5f && media_gyro_z < 0.5f) {

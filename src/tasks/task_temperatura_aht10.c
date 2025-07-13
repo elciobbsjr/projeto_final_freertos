@@ -38,11 +38,13 @@ void piscar_alerta_critico() {
 }
 
 void task_temperatura_aht10(void *pvParameters) {
-    static float temps[12];
+    static float temps[24];
     static int temp_idx = 0;
     static int leituras_criticas = 0;
     static int leituras_normais = 0;
     static bool sensor_conectado = true;
+    static TickType_t ultima_media = 0;
+    static TickType_t ultima_exibicao_temp = 0;
 
     while (1) {
         if (emergencia_ativa) {
@@ -61,11 +63,20 @@ void task_temperatura_aht10(void *pvParameters) {
                 }
 
                 latest_aht10 = data;
-                safe_printf("[AHT10] Temperatura: %.2f °C | Umidade: %.2f %%\n",
-                            data.temperature, data.humidity);
+
+                TickType_t agora = xTaskGetTickCount();
+
+                // Exibe temperatura/umidade no console a cada 2 minutos
+                if ((agora - ultima_exibicao_temp) >= pdMS_TO_TICKS(120000)) {
+                    safe_printf("[AHT10] Temperatura: %.2f °C | Umidade: %.2f %%\n",
+                                data.temperature, data.humidity);
+                    ultima_exibicao_temp = agora;
+                }
 
                 if (data.temperature > -40.0f && data.temperature < 85.0f) {
-                    temps[temp_idx++] = data.temperature;
+                    if (temp_idx < (int)(sizeof(temps)/sizeof(temps[0]))) {
+                        temps[temp_idx++] = data.temperature;
+                    }
                 }
 
                 bool temp_critica = (data.temperature > TEMP_LIMITE_SUPERIOR ||
@@ -82,7 +93,6 @@ void task_temperatura_aht10(void *pvParameters) {
                     leituras_criticas = 0;
                 }
 
-                TickType_t agora = xTaskGetTickCount();
                 if (leituras_criticas >= 3 && !alerta_ativo) {
                     safe_printf("[AHT10] ALERTA: Condições críticas detectadas!\n");
                     alerta_ativo = true;
@@ -90,9 +100,11 @@ void task_temperatura_aht10(void *pvParameters) {
 
                     if ((agora - ultimo_alerta_mqtt) >= pdMS_TO_TICKS(5000)) {
                         char msg[128];
-                        snprintf(msg, sizeof(msg), "🌡️ ALERTA: Temperatura ou umidade fora dos limites! Temp: %.1f °C | Umid: %.1f%%",
+                        snprintf(msg, sizeof(msg),
+                                 "🌡️ ALERTA: Temperatura ou umidade fora dos limites! Temp: %.1f °C | Umid: %.1f%%",
                                  data.temperature, data.humidity);
-                        if (fila_alertas_mqtt) xQueueSend(fila_alertas_mqtt, &msg, pdMS_TO_TICKS(100));
+                        if (fila_alertas_mqtt)
+                            xQueueSend(fila_alertas_mqtt, &msg, pdMS_TO_TICKS(100));
                         ultimo_alerta_mqtt = agora;
                     }
                 }
@@ -104,17 +116,23 @@ void task_temperatura_aht10(void *pvParameters) {
                     gpio_put(LED_VERDE_PIN, 0);
 
                     char msg[128];
-                    snprintf(msg, sizeof(msg), "✅ TEMP/UMIDADE normalizadas. Temp: %.1f °C | Umid: %.1f%%",
+                    snprintf(msg, sizeof(msg),
+                             "✅ TEMP/UMIDADE normalizadas. Temp: %.1f °C | Umid: %.1f%%",
                              data.temperature, data.humidity);
-                    if (fila_alertas_mqtt) xQueueSend(fila_alertas_mqtt, &msg, pdMS_TO_TICKS(100));
+                    if (fila_alertas_mqtt)
+                        xQueueSend(fila_alertas_mqtt, &msg, pdMS_TO_TICKS(100));
                 }
 
-                if (temp_idx >= 12) {
-                    float soma = 0;
-                    for (int i = 0; i < 12; i++) soma += temps[i];
-                    float media = soma / 12.0f;
-                    safe_printf("[AHT10] Média (1 min): %.2f °C\n", media);
-                    temp_idx = 0;
+                // Exibe a média apenas a cada 2 minutos
+                if ((agora - ultima_media) >= pdMS_TO_TICKS(120000)) {
+                    if (temp_idx > 0) {
+                        float soma = 0;
+                        for (int i = 0; i < temp_idx; i++) soma += temps[i];
+                        float media = soma / temp_idx;
+                        safe_printf("[AHT10] Média (2 min): %.2f °C\n", media);
+                        temp_idx = 0;
+                    }
+                    ultima_media = agora;
                 }
 
             } else {
@@ -131,6 +149,6 @@ void task_temperatura_aht10(void *pvParameters) {
             piscar_alerta_critico();
         }
 
-        vTaskDelay(pdMS_TO_TICKS(5000));
+        vTaskDelay(pdMS_TO_TICKS(5000));  // Aguarda 5 segundos entre cada leitura
     }
 }
