@@ -6,26 +6,25 @@
 #include "utils_print.h"
 #include "config_geral.h"
 #include "hardware/gpio.h"
+#include "mqtt_lwip.h"
 
 extern volatile bool emergencia_ativa;
-
 aht10_data_t latest_aht10 = {0};
 extern SemaphoreHandle_t i2c1_mutex;
+extern QueueHandle_t fila_alertas_mqtt;
 
 #define TEMP_LIMITE_SUPERIOR    35.0f
 #define TEMP_LIMITE_INFERIOR    17.0f
 #define UMID_LIMITE_SUPERIOR    80.0f
 #define UMID_LIMITE_INFERIOR    29.0f
 
-// Controla o estado do alerta
 static bool alerta_ativo = false;
 static TickType_t ultima_piscada = 0;
+static TickType_t ultimo_alerta_mqtt = 0;
 
-// 🔁 Função para piscar LED amarelo (2 vezes)
 void piscar_alerta_critico() {
     TickType_t agora = xTaskGetTickCount();
     if ((agora - ultima_piscada) >= pdMS_TO_TICKS(10000)) {
-        // Piscar 2 vezes
         for (int i = 0; i < 2; i++) {
             gpio_put(LED_VERMELHO_PIN, 1);
             gpio_put(LED_VERDE_PIN, 1);
@@ -62,7 +61,6 @@ void task_temperatura_aht10(void *pvParameters) {
                 }
 
                 latest_aht10 = data;
-
                 safe_printf("[AHT10] Temperatura: %.2f °C | Umidade: %.2f %%\n",
                             data.temperature, data.humidity);
 
@@ -84,25 +82,38 @@ void task_temperatura_aht10(void *pvParameters) {
                     leituras_criticas = 0;
                 }
 
+                TickType_t agora = xTaskGetTickCount();
                 if (leituras_criticas >= 3 && !alerta_ativo) {
                     safe_printf("[AHT10] ALERTA: Condições críticas detectadas!\n");
                     alerta_ativo = true;
-                    ultima_piscada = xTaskGetTickCount();  // Inicia contador
+                    ultima_piscada = agora;
+
+                    if ((agora - ultimo_alerta_mqtt) >= pdMS_TO_TICKS(5000)) {
+                        char msg[128];
+                        snprintf(msg, sizeof(msg), "🌡️ ALERTA: Temperatura ou umidade fora dos limites! Temp: %.1f °C | Umid: %.1f%%",
+                                 data.temperature, data.humidity);
+                        if (fila_alertas_mqtt) xQueueSend(fila_alertas_mqtt, &msg, pdMS_TO_TICKS(100));
+                        ultimo_alerta_mqtt = agora;
+                    }
                 }
 
                 if (leituras_normais >= 3 && alerta_ativo) {
                     safe_printf("[AHT10] ALERTA: Condição normalizada.\n");
                     alerta_ativo = false;
-                    // Apagar LEDs ao sair do modo alerta
                     gpio_put(LED_VERMELHO_PIN, 0);
                     gpio_put(LED_VERDE_PIN, 0);
+
+                    char msg[128];
+                    snprintf(msg, sizeof(msg), "✅ TEMP/UMIDADE normalizadas. Temp: %.1f °C | Umid: %.1f%%",
+                             data.temperature, data.humidity);
+                    if (fila_alertas_mqtt) xQueueSend(fila_alertas_mqtt, &msg, pdMS_TO_TICKS(100));
                 }
 
                 if (temp_idx >= 12) {
                     float soma = 0;
                     for (int i = 0; i < 12; i++) soma += temps[i];
                     float media = soma / 12.0f;
-                    safe_printf("[AHT10] Média (último 1 min): %.2f °C\n", media);
+                    safe_printf("[AHT10] Média (1 min): %.2f °C\n", media);
                     temp_idx = 0;
                 }
 
@@ -111,17 +122,15 @@ void task_temperatura_aht10(void *pvParameters) {
                     safe_printf("[AHT10] ERRO: Falha na leitura. Sensor possivelmente desconectado.\n");
                     sensor_conectado = false;
                 }
-
                 aht10_init(I2C1_PORT);
             }
-
             xSemaphoreGive(i2c1_mutex);
         }
 
         if (alerta_ativo) {
-            piscar_alerta_critico();  // 👈 Pisca se necessário
+            piscar_alerta_critico();
         }
 
-        vTaskDelay(pdMS_TO_TICKS(5000));  // Intervalo entre leituras
+        vTaskDelay(pdMS_TO_TICKS(5000));
     }
 }

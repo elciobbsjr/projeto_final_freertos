@@ -66,8 +66,8 @@ void task_oximetro_max30102(void *params) {
     int spo2_amostras = 0;
 
     TickType_t t_inicio = xTaskGetTickCount();
-    TickType_t t_inicio_bpm_anormal = 0;
     TickType_t t_ultimo_batimento = xTaskGetTickCount();
+
     TickType_t ultimo_alerta_bpm = 0;
     TickType_t ultimo_alerta_sem_batimento = 0;
 
@@ -136,39 +136,40 @@ void task_oximetro_max30102(void *params) {
 
             safe_printf("📊 [MÉDIA 60s] BPM: %d | SpO2: %d%%\n", bpm_medio, spo2_medio);
 
-            // 🚨 Frequência cardíaca anormal
+            // 🚨 Frequência cardíaca anormal (imediato, sem 15s)
             if (bpm_medio < 50 || bpm_medio > 100) {
-                if (!em_bpm_anormal) {
-                    t_inicio_bpm_anormal = agora;
-                    em_bpm_anormal = true;
-                } else if ((agora - t_inicio_bpm_anormal) >= pdMS_TO_TICKS(15000) &&
-                           (agora - ultimo_alerta_bpm) >= pdMS_TO_TICKS(5000)) {
-
-                    safe_printf("🚨 [ALERTA] Frequência cardíaca anormal por mais de 15s! BPM: %d\n", bpm_medio);
+                if (!em_bpm_anormal && (agora - ultimo_alerta_bpm) >= pdMS_TO_TICKS(5000)) {
+                    safe_printf("🚨 [ALERTA] BPM anormal detectado: %d\n", bpm_medio);
 
                     char msg[128];
-                    snprintf(msg, sizeof(msg), "🚨 Frequência cardíaca anormal por 15s! BPM: %d", bpm_medio);
-                    if (fila_alertas_mqtt != NULL) {
-                        xQueueSend(fila_alertas_mqtt, &msg, pdMS_TO_TICKS(100));
-                        ultimo_alerta_bpm = agora;
-                    }
+                    snprintf(msg, sizeof(msg), "🚨 Frequência cardíaca anormal! BPM: %d", bpm_medio);
+                    if (fila_alertas_mqtt) xQueueSend(fila_alertas_mqtt, &msg, pdMS_TO_TICKS(100));
+
+                    em_bpm_anormal = true;
+                    ultimo_alerta_bpm = agora;
                 }
             } else {
+                if (em_bpm_anormal) {
+                    safe_printf("💓 [INFO] BPM voltou ao normal: %d\n", bpm_medio);
+
+                    char msg[128];
+                    snprintf(msg, sizeof(msg), "💓 BPM normalizado: %d batimentos por minuto.", bpm_medio);
+                    if (fila_alertas_mqtt) xQueueSend(fila_alertas_mqtt, &msg, pdMS_TO_TICKS(100));
+                }
                 em_bpm_anormal = false;
             }
 
-            // ⚠️ Nenhum batimento nos últimos 10s
+            // ⚠️ Sem batimento nos últimos 10s
             if ((agora - t_ultimo_batimento) >= pdMS_TO_TICKS(10000) &&
                 (agora - ultimo_alerta_sem_batimento) >= pdMS_TO_TICKS(5000)) {
 
-                safe_printf("⚠️ [AVISO] Nenhum batimento detectado nos últimos 10s.\n");
+                safe_printf("⚠️ [AVISO] Nenhum batimento detectado há 10s.\n");
 
                 char msg[128];
-                snprintf(msg, sizeof(msg), "⚠️ Nenhum batimento detectado em 10s. Verifique o sensor!");
-                if (fila_alertas_mqtt != NULL) {
-                    xQueueSend(fila_alertas_mqtt, &msg, pdMS_TO_TICKS(100));
-                    ultimo_alerta_sem_batimento = agora;
-                }
+                snprintf(msg, sizeof(msg), "⚠️ Nenhum batimento detectado nos últimos 10 segundos. Verifique o sensor!");
+                if (fila_alertas_mqtt) xQueueSend(fila_alertas_mqtt, &msg, pdMS_TO_TICKS(100));
+
+                ultimo_alerta_sem_batimento = agora;
             }
 
             batimentos = 0;
@@ -177,6 +178,6 @@ void task_oximetro_max30102(void *params) {
             t_inicio = agora;
         }
 
-        vTaskDelay(pdMS_TO_TICKS(100));
+        vTaskDelay(pdMS_TO_TICKS(100)); // 10 Hz
     }
 }
