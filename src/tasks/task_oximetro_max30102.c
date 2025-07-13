@@ -6,19 +6,18 @@
 #include <stdio.h>
 #include <math.h>
 #include "utils_print.h"
+#include "config_geral.h"
+#include "mqtt_lwip.h"
 
 #define I2C_PORT i2c1
 #define MAX30102_ADDR 0x57
 
-// ✅ Flag de emergência
 extern volatile bool emergencia_ativa;
-
-// ✅ Mutex para I2C1
 extern SemaphoreHandle_t i2c1_mutex;
+extern QueueHandle_t fila_alertas_mqtt;
 
 static void write_reg(uint8_t reg, uint8_t val) {
     uint8_t buf[2] = {reg, val};
-
     if (xSemaphoreTake(i2c1_mutex, pdMS_TO_TICKS(100)) == pdTRUE) {
         i2c_write_blocking(I2C_PORT, MAX30102_ADDR, buf, 2, false);
         xSemaphoreGive(i2c1_mutex);
@@ -54,13 +53,12 @@ static void max30102_init() {
 }
 
 void task_oximetro_max30102(void *params) {
-    vTaskDelay(pdMS_TO_TICKS(1000));  // Aguarda sistema/USB
+    vTaskDelay(pdMS_TO_TICKS(1000));
     max30102_init();
     vTaskDelay(pdMS_TO_TICKS(100));
     safe_printf("[MAX30102] Iniciando monitoramento (60s)...\n");
 
-    uint32_t ir = 0, red = 0;
-    uint32_t ir_anterior = 0;
+    uint32_t ir = 0, red = 0, ir_anterior = 0;
     bool pulso_subiu = false;
 
     int batimentos = 0;
@@ -70,12 +68,13 @@ void task_oximetro_max30102(void *params) {
     TickType_t t_inicio = xTaskGetTickCount();
     TickType_t t_inicio_bpm_anormal = 0;
     TickType_t t_ultimo_batimento = xTaskGetTickCount();
+    TickType_t ultimo_alerta_bpm = 0;
+    TickType_t ultimo_alerta_sem_batimento = 0;
 
     bool em_bpm_anormal = false;
     bool sensor_conectado = true;
 
     while (1) {
-        // ✅ Pausa durante emergência
         if (emergencia_ativa) {
             vTaskDelay(pdMS_TO_TICKS(500));
             continue;
@@ -94,7 +93,7 @@ void task_oximetro_max30102(void *params) {
             vTaskDelay(pdMS_TO_TICKS(100));
 
             if (read_fifo(&ir, &red)) {
-                safe_printf("[MAX30102] Sensor reconectado com sucesso e reinicializado.\n");
+                safe_printf("[MAX30102] Sensor reconectado com sucesso.\n");
                 sensor_conectado = true;
                 t_inicio = xTaskGetTickCount();
                 t_ultimo_batimento = t_inicio;
@@ -125,7 +124,6 @@ void task_oximetro_max30102(void *params) {
             int spo2 = 110 - (int)(25.0f * ratio);
             if (spo2 > 100) spo2 = 100;
             if (spo2 < 70) spo2 = 70;
-
             spo2_soma += spo2;
             spo2_amostras++;
         }
@@ -138,19 +136,39 @@ void task_oximetro_max30102(void *params) {
 
             safe_printf("📊 [MÉDIA 60s] BPM: %d | SpO2: %d%%\n", bpm_medio, spo2_medio);
 
+            // 🚨 Frequência cardíaca anormal
             if (bpm_medio < 50 || bpm_medio > 100) {
                 if (!em_bpm_anormal) {
                     t_inicio_bpm_anormal = agora;
                     em_bpm_anormal = true;
-                } else if ((agora - t_inicio_bpm_anormal) >= pdMS_TO_TICKS(15000)) {
+                } else if ((agora - t_inicio_bpm_anormal) >= pdMS_TO_TICKS(15000) &&
+                           (agora - ultimo_alerta_bpm) >= pdMS_TO_TICKS(5000)) {
+
                     safe_printf("🚨 [ALERTA] Frequência cardíaca anormal por mais de 15s! BPM: %d\n", bpm_medio);
+
+                    char msg[128];
+                    snprintf(msg, sizeof(msg), "🚨 Frequência cardíaca anormal por 15s! BPM: %d", bpm_medio);
+                    if (fila_alertas_mqtt != NULL) {
+                        xQueueSend(fila_alertas_mqtt, &msg, pdMS_TO_TICKS(100));
+                        ultimo_alerta_bpm = agora;
+                    }
                 }
             } else {
                 em_bpm_anormal = false;
             }
 
-            if ((agora - t_ultimo_batimento) >= pdMS_TO_TICKS(10000)) {
-                safe_printf("⚠️ [AVISO] Nenhum batimento detectado nos últimos 10s. Verifique o sensor!\n");
+            // ⚠️ Nenhum batimento nos últimos 10s
+            if ((agora - t_ultimo_batimento) >= pdMS_TO_TICKS(10000) &&
+                (agora - ultimo_alerta_sem_batimento) >= pdMS_TO_TICKS(5000)) {
+
+                safe_printf("⚠️ [AVISO] Nenhum batimento detectado nos últimos 10s.\n");
+
+                char msg[128];
+                snprintf(msg, sizeof(msg), "⚠️ Nenhum batimento detectado em 10s. Verifique o sensor!");
+                if (fila_alertas_mqtt != NULL) {
+                    xQueueSend(fila_alertas_mqtt, &msg, pdMS_TO_TICKS(100));
+                    ultimo_alerta_sem_batimento = agora;
+                }
             }
 
             batimentos = 0;
@@ -159,6 +177,6 @@ void task_oximetro_max30102(void *params) {
             t_inicio = agora;
         }
 
-        vTaskDelay(pdMS_TO_TICKS(100));  // 10 Hz
+        vTaskDelay(pdMS_TO_TICKS(100));
     }
 }

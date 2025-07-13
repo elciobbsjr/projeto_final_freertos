@@ -238,3 +238,5 @@
 309	818	7740834576819266	picow_freertos.elf	7b0c16fa956008d0
 53	309	7740838533100751	src/CMakeFiles/picow_freertos.dir/tasks/task_giroscopio_mpu6500.c.obj	aeedc69a9099ee21
 310	850	7740838535641594	picow_freertos.elf	7b0c16fa956008d0
+53	320	7740842589129715	src/CMakeFiles/picow_freertos.dir/tasks/task_oximetro_max30102.c.obj	71615645d18ef0c9
+321	903	7740842591808441	picow_freertos.elf	7b0c16fa956008d0
