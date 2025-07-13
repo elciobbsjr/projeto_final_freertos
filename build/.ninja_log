@@ -236,3 +236,5 @@
 279	773	7740831255228835	picow_freertos.elf	7b0c16fa956008d0
 71	308	7740834574481017	src/CMakeFiles/picow_freertos.dir/tasks/task_emergencia.c.obj	36eebff917f39dee
 309	818	7740834576819266	picow_freertos.elf	7b0c16fa956008d0
+53	309	7740838533100751	src/CMakeFiles/picow_freertos.dir/tasks/task_giroscopio_mpu6500.c.obj	aeedc69a9099ee21
+310	850	7740838535641594	picow_freertos.elf	7b0c16fa956008d0
