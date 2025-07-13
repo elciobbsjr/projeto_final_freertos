@@ -29,6 +29,7 @@ add_executable(picow_freertos
     tasks/task_wifi.c
     tasks/task_oximetro_max30102.c
     tasks/task_mqtt.c                    # ✅ Nova task adicionada
+    tasks/task_telegram.c
 
     # Drivers
     drivers/mpu6500.c

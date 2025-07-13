@@ -13,6 +13,7 @@
 #include "task_oximetro_max30102.h"
 #include "task_mqtt.h"             // ✅ Adiciona a task do MQTT
 #include "utils_print.h"
+#include "task_telegram.h"
 
 // Função para inicializar PWM no buzzer
 void buzzer_pwm_init(uint gpio_pin) {
@@ -42,6 +43,8 @@ int main() {
     xTaskCreate(task_wifi,               "WiFi",     1024,  NULL, 3, NULL);
     xTaskCreate(task_oximetro_max30102,  "MAX30102", 2048,  NULL, 1, NULL);
     xTaskCreate(tarefa_mqtt,             "MQTT",     2048,  NULL, 2, NULL);  // ✅ Task MQTT adicionada
+    xTaskCreate(tarefa_telegram_teste, "Telegram", 2048, NULL, 1, NULL);
+
 
     // Inicia o escalonador do FreeRTOS
     vTaskStartScheduler();
