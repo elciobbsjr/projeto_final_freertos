@@ -10,6 +10,7 @@
 /* ======== INCLUDES ========= */
 #include "FreeRTOS.h"
 #include "semphr.h"
+#include "queue.h"
 #include "hardware/i2c.h"
 #include "vl53l0x.h"
 
@@ -54,8 +55,12 @@
 /* ======== VARIÁVEIS GLOBAIS (extern) ======== */
 extern SemaphoreHandle_t print_mutex;
 extern SemaphoreHandle_t i2c1_mutex;
+extern SemaphoreHandle_t emergencia_semaforo;
 extern vl53l0x_dev       vl53;
 extern volatile bool     emergencia_ativa;
+
+/* ======== FILA DE ALERTAS MQTT ======== */
+extern QueueHandle_t fila_alertas_mqtt;
 
 /* ======== PROTÓTIPOS ======== */
 void config_geral_init(void);

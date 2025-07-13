@@ -13,8 +13,8 @@ vl53l0x_dev vl53;
 SemaphoreHandle_t print_mutex;
 SemaphoreHandle_t i2c1_mutex;
 SemaphoreHandle_t emergencia_semaforo;
+QueueHandle_t fila_alertas_mqtt = NULL;
 volatile bool emergencia_ativa = false;
-
 
 void config_geral_init(void) {
     // === Inicializa I2C0 (MPU6500) ===
@@ -86,5 +86,13 @@ void config_geral_init(void) {
     } else {
         printf("[OK] VL53L0X inicializado.\n");
         vl53l0x_start_continuous(&vl53, 0);
+    }
+
+    // === Fila de alertas MQTT ===
+    fila_alertas_mqtt = xQueueCreate(10, sizeof(char[128]));
+    if (fila_alertas_mqtt == NULL) {
+        printf("[ERRO] Falha ao criar fila de alertas MQTT!\n");
+    } else {
+        printf("[OK] Fila de alertas MQTT criada.\n");
     }
 }
