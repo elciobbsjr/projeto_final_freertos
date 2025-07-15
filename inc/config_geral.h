@@ -43,7 +43,7 @@
 #define WIFI_PASSWORD       "elc10jun10r"
 
 /* ======== MQTT ======== */
-#define MQTT_BROKER_IP      "192.168.1.101"
+#define MQTT_BROKER_IP      "192.168.1.112"
 #define MQTT_BROKER_PORT    1883
 #define DEVICE_ID           "LumiConnect"
 

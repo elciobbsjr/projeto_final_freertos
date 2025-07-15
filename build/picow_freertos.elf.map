@@ -6259,468 +6259,468 @@ LOAD C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc
 .iplt           0x1001e000        0x0
  .iplt          0x1001e000        0x0 C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp/crtbegin.o
 
-.rodata         0x1001e000    0x3ac04
+.rodata         0x1001e000    0x3ac14
  *(EXCLUDE_FILE(*libm.a: *libc.a:*lib_a-mem*.o *libgcc.a:) .rodata*)
  .rodata.main.str1.4
-                0x1001e000     0x2d3d src/CMakeFiles/picow_freertos.dir/main.c.obj
+                0x1001e000     0x2d4d src/CMakeFiles/picow_freertos.dir/main.c.obj
                                  0x47 (size before relaxing)
  .rodata.config_geral_init.str1.4
-                0x10020d3d       0xde src/CMakeFiles/picow_freertos.dir/config_geral.c.obj
+                0x10020d4d       0xde src/CMakeFiles/picow_freertos.dir/config_geral.c.obj
  .rodata.task_giroscopio_mpu6500.str1.4
-                0x10020d3d      0x1f4 src/CMakeFiles/picow_freertos.dir/tasks/task_giroscopio_mpu6500.c.obj
+                0x10020d4d      0x204 src/CMakeFiles/picow_freertos.dir/tasks/task_giroscopio_mpu6500.c.obj
  .rodata.task_temperatura_aht10.str1.4
-                0x10020d3d      0x1c0 src/CMakeFiles/picow_freertos.dir/tasks/task_temperatura_aht10.c.obj
+                0x10020d4d      0x1c0 src/CMakeFiles/picow_freertos.dir/tasks/task_temperatura_aht10.c.obj
  .rodata.task_distancia_vl53l0x.str1.4
-                0x10020d3d      0x194 src/CMakeFiles/picow_freertos.dir/tasks/task_distancia_vl53l0x.c.obj
+                0x10020d4d      0x194 src/CMakeFiles/picow_freertos.dir/tasks/task_distancia_vl53l0x.c.obj
  .rodata.task_emergencia.str1.4
-                0x10020d3d      0x1bf src/CMakeFiles/picow_freertos.dir/tasks/task_emergencia.c.obj
+                0x10020d4d      0x1bf src/CMakeFiles/picow_freertos.dir/tasks/task_emergencia.c.obj
  .rodata.task_wifi.str1.4
-                0x10020d3d       0x97 src/CMakeFiles/picow_freertos.dir/tasks/task_wifi.c.obj
+                0x10020d4d       0x97 src/CMakeFiles/picow_freertos.dir/tasks/task_wifi.c.obj
  .rodata.task_oximetro_max30102.str1.4
-                0x10020d3d      0x200 src/CMakeFiles/picow_freertos.dir/tasks/task_oximetro_max30102.c.obj
+                0x10020d4d      0x200 src/CMakeFiles/picow_freertos.dir/tasks/task_oximetro_max30102.c.obj
  .rodata.tarefa_mqtt.str1.4
-                0x10020d3d       0xdf src/CMakeFiles/picow_freertos.dir/tasks/task_mqtt.c.obj
+                0x10020d4d       0xdf src/CMakeFiles/picow_freertos.dir/tasks/task_mqtt.c.obj
  .rodata.task_alertas_mqtt.str1.4
-                0x10020d3d       0x65 src/CMakeFiles/picow_freertos.dir/tasks/task_alertas_mqtt.c.obj
- *fill*         0x10020d3d        0x3 
+                0x10020d4d       0x65 src/CMakeFiles/picow_freertos.dir/tasks/task_alertas_mqtt.c.obj
+ *fill*         0x10020d4d        0x3 
  .rodata.CMD_MEASURE
-                0x10020d40        0x3 src/CMakeFiles/picow_freertos.dir/drivers/aht10.c.obj
-                0x10020d40                CMD_MEASURE
- *fill*         0x10020d43        0x1 
+                0x10020d50        0x3 src/CMakeFiles/picow_freertos.dir/drivers/aht10.c.obj
+                0x10020d50                CMD_MEASURE
+ *fill*         0x10020d53        0x1 
  .rodata.CMD_INIT
-                0x10020d44        0x3 src/CMakeFiles/picow_freertos.dir/drivers/aht10.c.obj
-                0x10020d44                CMD_INIT
+                0x10020d54        0x3 src/CMakeFiles/picow_freertos.dir/drivers/aht10.c.obj
+                0x10020d54                CMD_INIT
  .rodata.mqtt_connection_cb.str1.4
-                0x10020d47      0x167 src/CMakeFiles/picow_freertos.dir/mqtt_lwip.c.obj
- *fill*         0x10020d47        0x1 
+                0x10020d57      0x167 src/CMakeFiles/picow_freertos.dir/mqtt_lwip.c.obj
+ *fill*         0x10020d57        0x1 
  .rodata.mqtt_connection_cb
-                0x10020d48       0x18 src/CMakeFiles/picow_freertos.dir/mqtt_lwip.c.obj
+                0x10020d58       0x18 src/CMakeFiles/picow_freertos.dir/mqtt_lwip.c.obj
  .rodata.publicar_mensagem_mqtt.str1.4
-                0x10020d60       0x21 src/CMakeFiles/picow_freertos.dir/mqtt_lwip.c.obj
+                0x10020d70       0x21 src/CMakeFiles/picow_freertos.dir/mqtt_lwip.c.obj
  .rodata.iniciar_mqtt_cliente.str1.4
-                0x10020d60       0x8a src/CMakeFiles/picow_freertos.dir/mqtt_lwip.c.obj
+                0x10020d70       0x8a src/CMakeFiles/picow_freertos.dir/mqtt_lwip.c.obj
  .rodata.panic.str1.4
-                0x10020d60       0x12 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_platform_panic/panic.c.obj
+                0x10020d70       0x12 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_platform_panic/panic.c.obj
  .rodata.panic_unsupported.str1.4
-                0x10020d60        0xe src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_platform_panic/panic.c.obj
+                0x10020d70        0xe src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_platform_panic/panic.c.obj
  .rodata.spin_lock_claim_unused.str1.4
-                0x10020d60       0x1b src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync/sync.c.obj
+                0x10020d70       0x1b src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync/sync.c.obj
  .rodata.user_irq_claim_unused.str1.4
-                0x10020d60       0x1b src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_irq/irq.c.obj
+                0x10020d70       0x1b src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_irq/irq.c.obj
  .rodata.at_the_end_of_time
-                0x10020d60        0x8 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/common/pico_time/time.c.obj
-                0x10020d60                at_the_end_of_time
+                0x10020d70        0x8 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/common/pico_time/time.c.obj
+                0x10020d70                at_the_end_of_time
  .rodata.timer_hardware_alarm_claim.str1.4
-                0x10020d68       0x22 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_timer/timer.c.obj
+                0x10020d78       0x22 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_timer/timer.c.obj
  .rodata.timer_hardware_alarm_claim_unused.str1.4
-                0x10020d68       0x14 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_timer/timer.c.obj
+                0x10020d78       0x14 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_timer/timer.c.obj
  .rodata.hard_assertion_failure.str1.4
-                0x10020d68        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime/runtime.c.obj
+                0x10020d78        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime/runtime.c.obj
  .rodata.missing_double_func_shim.str1.4
-                0x10020d68       0x18 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj
+                0x10020d78       0x18 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj
  .rodata.missing_float_func_shim.str1.4
-                0x10020d68        0x1 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_init_rom_rp2040.c.obj
+                0x10020d78        0x1 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_init_rom_rp2040.c.obj
  .rodata.__wrap_malloc.str1.4
-                0x10020d68        0xe src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_malloc/malloc.c.obj
+                0x10020d78        0xe src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_malloc/malloc.c.obj
  .rodata.str1.4
-                0x10020d68       0x44 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+                0x10020d78       0x44 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
  .rodata.__bi_84
-                0x10020d68        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+                0x10020d78        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
  .rodata.__bi_78
-                0x10020d74        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+                0x10020d84        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
  .rodata.__bi_54
-                0x10020d80        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+                0x10020d90        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
  .rodata.__bi_48
-                0x10020d8c        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+                0x10020d9c        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
  .rodata.__bi_42
-                0x10020d98        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+                0x10020da8        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
  .rodata.__bi_34
-                0x10020da4        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+                0x10020db4        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
  .rodata.__bi_26
-                0x10020db0        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+                0x10020dc0        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
  .rodata._ftoa.str1.4
-                0x10020dbc       0x15 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
+                0x10020dcc       0x15 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
  .rodata._vsnprintf
-                0x10020dbc      0x19c src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
+                0x10020dcc      0x19c src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
  .rodata.pow10.0
-                0x10020f58       0x50 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
+                0x10020f68       0x50 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
  .rodata.crlf_str.0
-                0x10020fa8        0x2 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio/stdio.c.obj
- *fill*         0x10020faa        0x2 
+                0x10020fb8        0x2 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio/stdio.c.obj
+ *fill*         0x10020fba        0x2 
  .rodata._resetd_driver
-                0x10020fac       0x20 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x10020fbc       0x20 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
  .rodata.desc_ms_os_20
-                0x10020fcc       0xa6 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
- *fill*         0x10021072        0x2 
+                0x10020fdc       0xa6 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+ *fill*         0x10021082        0x2 
  .rodata.desc_bos
-                0x10021074       0x21 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
-                0x10021074                desc_bos
+                0x10021084       0x21 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x10021084                desc_bos
  .rodata.str1.4
-                0x10021095       0x13 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
- *fill*         0x10021095        0x3 
+                0x100210a5       0x13 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+ *fill*         0x100210a5        0x3 
  .rodata.__bi_197.0
-                0x10021098        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x100210a8        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .rodata.str1.4
-                0x100210a4       0x2a src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x100210b4       0x2a src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
  .rodata.usbd_desc_str
-                0x100210a4       0x18 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x100210b4       0x18 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
  .rodata.usbd_desc_cfg
-                0x100210bc       0x54 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x100210cc       0x54 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
  .rodata.usbd_desc_device
-                0x10021110       0x12 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x10021120       0x12 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
  .rodata.str1.4
-                0x10021122       0x14 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x10021132       0x14 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
  .rodata.str1.4
-                0x10021122       0x48 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
- *fill*         0x10021122        0x2 
+                0x10021132       0x48 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+ *fill*         0x10021132        0x2 
  .rodata.tud_task_ext
-                0x10021124       0x8c src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
- .rodata        0x100211b0       0x1c src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
+                0x10021134       0x8c src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
+ .rodata        0x100211c0       0x1c src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
  .rodata._usbd_driver
-                0x100211cc       0x40 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
+                0x100211dc       0x40 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
  .rodata.uxTopUsedPriority
-                0x1002120c        0x4 src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
+                0x1002121c        0x4 src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj
  .rodata.prvTimerTask
-                0x10021210       0x28 src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
+                0x10021220       0x28 src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
  .rodata.xTimerCreateTimerTask.str1.4
-                0x10021238       0x10 src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
+                0x10021248       0x10 src/CMakeFiles/picow_freertos.dir/__/lib/FreeRTOS-Kernel/timers.c.obj
  .rodata.dns_send.isra.0.str1.4
-                0x10021238       0x18 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/dns.c.obj
+                0x10021248       0x18 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/dns.c.obj
  .rodata.dns_check_entry.str1.4
-                0x10021238       0x1f src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/dns.c.obj
+                0x10021248       0x1f src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/dns.c.obj
  .rodata.mem_free.str1.4
-                0x10021238       0xb6 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/mem.c.obj
+                0x10021248       0xb6 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/mem.c.obj
  .rodata.mem_trim.str1.4
-                0x10021238       0x49 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/mem.c.obj
+                0x10021248       0x49 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/mem.c.obj
  .rodata.mem_malloc.str1.4
-                0x10021238       0x5f src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/mem.c.obj
+                0x10021248       0x5f src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/mem.c.obj
  .rodata.memp_malloc_pool.str1.4
-                0x10021238       0x37 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/memp.c.obj
+                0x10021248       0x37 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/memp.c.obj
  .rodata.memp_free_pool.str1.4
-                0x10021238       0x20 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/memp.c.obj
+                0x10021248       0x20 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/memp.c.obj
  .rodata.memp_pools
-                0x10021238       0x24 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/memp.c.obj
-                0x10021238                memp_pools
+                0x10021248       0x24 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/memp.c.obj
+                0x10021248                memp_pools
  .rodata.memp_PBUF_POOL
-                0x1002125c        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/memp.c.obj
-                0x1002125c                memp_PBUF_POOL
+                0x1002126c        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/memp.c.obj
+                0x1002126c                memp_PBUF_POOL
  .rodata.memp_PBUF
-                0x10021268        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/memp.c.obj
-                0x10021268                memp_PBUF
+                0x10021278        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/memp.c.obj
+                0x10021278                memp_PBUF
  .rodata.memp_SYS_TIMEOUT
-                0x10021274        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/memp.c.obj
-                0x10021274                memp_SYS_TIMEOUT
+                0x10021284        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/memp.c.obj
+                0x10021284                memp_SYS_TIMEOUT
  .rodata.memp_REASSDATA
-                0x10021280        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/memp.c.obj
-                0x10021280                memp_REASSDATA
+                0x10021290        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/memp.c.obj
+                0x10021290                memp_REASSDATA
  .rodata.memp_TCP_SEG
-                0x1002128c        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/memp.c.obj
-                0x1002128c                memp_TCP_SEG
+                0x1002129c        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/memp.c.obj
+                0x1002129c                memp_TCP_SEG
  .rodata.memp_TCP_PCB_LISTEN
-                0x10021298        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/memp.c.obj
-                0x10021298                memp_TCP_PCB_LISTEN
+                0x100212a8        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/memp.c.obj
+                0x100212a8                memp_TCP_PCB_LISTEN
  .rodata.memp_TCP_PCB
-                0x100212a4        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/memp.c.obj
-                0x100212a4                memp_TCP_PCB
+                0x100212b4        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/memp.c.obj
+                0x100212b4                memp_TCP_PCB
  .rodata.memp_UDP_PCB
-                0x100212b0        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/memp.c.obj
-                0x100212b0                memp_UDP_PCB
+                0x100212c0        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/memp.c.obj
+                0x100212c0                memp_UDP_PCB
  .rodata.memp_RAW_PCB
-                0x100212bc        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/memp.c.obj
-                0x100212bc                memp_RAW_PCB
+                0x100212cc        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/memp.c.obj
+                0x100212cc                memp_RAW_PCB
  .rodata.netif_do_set_ipaddr.isra.0.str1.4
-                0x100212c8       0x10 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/netif.c.obj
+                0x100212d8       0x10 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/netif.c.obj
  .rodata.netif_add.str1.4
-                0x100212c8       0x42 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/netif.c.obj
+                0x100212d8       0x42 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/netif.c.obj
  .rodata.pbuf_free.part.0.str1.4
-                0x100212c8       0x2a src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/pbuf.c.obj
+                0x100212d8       0x2a src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/pbuf.c.obj
  .rodata.pbuf_alloc.str1.4
-                0x100212c8       0x1b src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/pbuf.c.obj
+                0x100212d8       0x1b src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/pbuf.c.obj
  .rodata.pbuf_realloc.str1.4
-                0x100212c8       0x65 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/pbuf.c.obj
+                0x100212d8       0x65 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/pbuf.c.obj
  .rodata.pbuf_add_header.str1.4
-                0x100212c8        0xa src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/pbuf.c.obj
+                0x100212d8        0xa src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/pbuf.c.obj
  .rodata.pbuf_ref.str1.4
-                0x100212c8       0x12 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/pbuf.c.obj
+                0x100212d8       0x12 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/pbuf.c.obj
  .rodata.pbuf_cat.str1.4
-                0x100212c8       0x2d src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/pbuf.c.obj
+                0x100212d8       0x2d src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/pbuf.c.obj
  .rodata.pbuf_copy_partial_pbuf.str1.4
-                0x100212c8       0x33 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/pbuf.c.obj
+                0x100212d8       0x33 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/pbuf.c.obj
  .rodata.pbuf_take.str1.4
-                0x100212c8       0x2e src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/pbuf.c.obj
+                0x100212d8       0x2e src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/pbuf.c.obj
  .rodata.pbuf_coalesce.str1.4
-                0x100212c8       0x11 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/pbuf.c.obj
+                0x100212d8       0x11 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/pbuf.c.obj
  .rodata.raw_input.str1.4
-                0x100212c8       0x49 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/raw.c.obj
+                0x100212d8       0x49 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/raw.c.obj
  .rodata.tcp_close_shutdown_fin.str1.4
-                0x100212c8        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
+                0x100212d8        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
  .rodata.tcp_free.str1.4
-                0x100212c8       0x11 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
+                0x100212d8       0x11 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
  .rodata.tcp_update_rcv_ann_wnd.str1.4
-                0x100212c8       0x3e src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
+                0x100212d8       0x3e src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
  .rodata.tcp_recved.str1.4
-                0x100212c8       0x26 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
+                0x100212d8       0x26 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
  .rodata.tcp_slowtmr.str1.4
-                0x100212c8      0x1c6 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
+                0x100212d8      0x1c6 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
  .rodata.tcp_seg_copy.str1.4
-                0x100212c8       0x1a src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
+                0x100212d8       0x1a src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
  .rodata.tcp_recv.str1.4
-                0x100212c8       0x27 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
+                0x100212d8       0x27 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
  .rodata.tcp_sent.str1.4
-                0x100212c8       0x27 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
+                0x100212d8       0x27 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
  .rodata.tcp_err.str1.4
-                0x100212c8       0x26 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
+                0x100212d8       0x26 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
  .rodata.tcp_poll.str1.4
-                0x100212c8       0x1e src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
+                0x100212d8       0x1e src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
  .rodata.tcp_pcb_remove.str1.4
-                0x100212c8       0x87 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
+                0x100212d8       0x87 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
  .rodata.tcp_abandon.str1.4
-                0x100212c8       0x31 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
+                0x100212d8       0x31 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
  .rodata.tcp_close_shutdown.str1.4
-                0x100212c8       0x55 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
+                0x100212d8       0x55 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
  .rodata.tcp_next_iss.str1.4
-                0x100212c8       0x1a src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
+                0x100212d8       0x1a src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
  .rodata.tcp_eff_send_mss_netif.str1.4
-                0x100212c8       0x27 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
+                0x100212d8       0x27 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
  .rodata.tcp_pcb_lists
-                0x100212c8       0x10 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
-                0x100212c8                tcp_pcb_lists
+                0x100212d8       0x10 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
+                0x100212d8                tcp_pcb_lists
  .rodata.tcp_persist_backoff
-                0x100212d8        0x7 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
- *fill*         0x100212df        0x1 
+                0x100212e8        0x7 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
+ *fill*         0x100212ef        0x1 
  .rodata.tcp_backoff
-                0x100212e0        0xd src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
+                0x100212f0        0xd src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp.c.obj
  .rodata.tcp_free_acked_segments.isra.0.str1.4
-                0x100212ed       0x48 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_in.c.obj
+                0x100212fd       0x48 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_in.c.obj
  .rodata.tcp_receive.str1.4
-                0x100212ed      0x104 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_in.c.obj
+                0x100212fd      0x104 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_in.c.obj
  .rodata.tcp_input.str1.4
-                0x100212ed      0x1de src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_in.c.obj
- *fill*         0x100212ed        0x3 
+                0x100212fd      0x1de src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_in.c.obj
+ *fill*         0x100212fd        0x3 
  .rodata.tcp_input
-                0x100212f0       0x28 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_in.c.obj
+                0x10021300       0x28 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_in.c.obj
  .rodata.tcp_create_segment.str1.4
-                0x10021318       0x35 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
+                0x10021328       0x35 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
  .rodata.tcp_write.str1.4
-                0x10021318      0x13e src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
+                0x10021328      0x13e src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
  .rodata.tcp_split_unsent_seg.str1.4
-                0x10021318       0x55 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
+                0x10021328       0x55 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
  .rodata.tcp_send_fin.str1.4
-                0x10021318       0x88 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
+                0x10021328       0x88 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
  .rodata.tcp_enqueue_flags.str1.4
-                0x10021318       0xb1 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
+                0x10021328       0xb1 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
  .rodata.tcp_rexmit_rto_prepare.str1.4
-                0x10021318       0x24 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
+                0x10021328       0x24 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
  .rodata.tcp_rexmit.str1.4
-                0x10021318       0x18 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
+                0x10021328       0x18 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
  .rodata.tcp_rexmit_fast.str1.4
-                0x10021318       0x1d src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
+                0x10021328       0x1d src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
  .rodata.tcp_rst.str1.4
-                0x10021318       0x66 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
+                0x10021328       0x66 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
  .rodata.tcp_send_empty_ack.str1.4
-                0x10021318       0x20 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
+                0x10021328       0x20 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
  .rodata.tcp_output.str1.4
-                0x10021318       0x6b src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
+                0x10021328       0x6b src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
  .rodata.tcp_rexmit_rto_commit.str1.4
-                0x10021318       0x23 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
+                0x10021328       0x23 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
  .rodata.tcp_rexmit_rto.str1.4
-                0x10021318       0x1c src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
+                0x10021328       0x1c src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
  .rodata.tcp_keepalive.str1.4
-                0x10021318       0x1b src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
+                0x10021328       0x1b src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
  .rodata.tcp_zero_window_probe.str1.4
-                0x10021318       0x23 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
+                0x10021328       0x23 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/tcp_out.c.obj
  .rodata.tcpip_tcp_timer.str1.4
-                0x10021318       0x3d src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/timeouts.c.obj
+                0x10021328       0x3d src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/timeouts.c.obj
  .rodata.sys_timeouts_init.str1.4
-                0x10021318       0x36 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/timeouts.c.obj
+                0x10021328       0x36 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/timeouts.c.obj
  .rodata.lwip_cyclic_timers
-                0x10021318       0x30 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/timeouts.c.obj
-                0x10021318                lwip_cyclic_timers
+                0x10021328       0x30 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/timeouts.c.obj
+                0x10021328                lwip_cyclic_timers
  .rodata.udp_input.str1.4
-                0x10021348       0x4e src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/udp.c.obj
+                0x10021358       0x4e src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/udp.c.obj
  .rodata.udp_sendto_if_src.str1.4
-                0x10021348       0x2e src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/udp.c.obj
+                0x10021358       0x2e src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/udp.c.obj
  .rodata.dhcp_create_msg.str1.4
-                0x10021348       0x40 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/dhcp.c.obj
+                0x10021358       0x40 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/dhcp.c.obj
  .rodata.dhcp_inc_pcb_refcount.str1.4
-                0x10021348       0x25 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/dhcp.c.obj
+                0x10021358       0x25 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/dhcp.c.obj
  .rodata.dhcp_option_hostname.isra.0.str1.4
-                0x10021348       0x95 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/dhcp.c.obj
+                0x10021358       0x95 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/dhcp.c.obj
  .rodata.dhcp_recv.str1.4
-                0x10021348       0x11 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/dhcp.c.obj
+                0x10021358       0x11 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/dhcp.c.obj
  .rodata.dhcp_recv
-                0x10021348      0x1e0 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/dhcp.c.obj
+                0x10021358      0x1e0 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/dhcp.c.obj
  .rodata.dhcp_set_struct.str1.4
-                0x10021528       0x44 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/dhcp.c.obj
+                0x10021538       0x44 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/dhcp.c.obj
  .rodata.dhcp_start.str1.4
-                0x10021528       0x24 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/dhcp.c.obj
+                0x10021538       0x24 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/dhcp.c.obj
  .rodata.dhcp_network_changed_link_up.str1.4
-                0x10021528       0x14 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/dhcp.c.obj
+                0x10021538       0x14 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/dhcp.c.obj
  .rodata.etharp_find_entry.str1.4
-                0x10021528       0x41 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/etharp.c.obj
+                0x10021538       0x41 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/etharp.c.obj
  .rodata.etharp_raw.str1.4
-                0x10021528       0x85 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/etharp.c.obj
+                0x10021538       0x85 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/etharp.c.obj
  .rodata.etharp_output_to_arp_index.str1.4
-                0x10021528       0x30 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/etharp.c.obj
+                0x10021538       0x30 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/etharp.c.obj
  .rodata.etharp_get_entry.str1.4
-                0x10021528       0x20 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/etharp.c.obj
+                0x10021538       0x20 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/etharp.c.obj
  .rodata.etharp_input.str1.4
-                0x10021528       0x24 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/etharp.c.obj
+                0x10021538       0x24 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/etharp.c.obj
  .rodata.etharp_query.str1.4
-                0x10021528       0x1a src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/etharp.c.obj
+                0x10021538       0x1a src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/etharp.c.obj
  .rodata.etharp_output.str1.4
-                0x10021528        0xa src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/etharp.c.obj
+                0x10021538        0xa src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/etharp.c.obj
  .rodata.icmp_input.str1.4
-                0x10021528       0x65 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/icmp.c.obj
+                0x10021538       0x65 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/icmp.c.obj
  .rodata.icmp_dest_unreach.str1.4
-                0x10021528       0x2c src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/icmp.c.obj
+                0x10021538       0x2c src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/icmp.c.obj
  .rodata.ip_reass_free_complete_datagram.str1.4
-                0x10021528       0x7e src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/ip4_frag.c.obj
+                0x10021538       0x7e src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/ip4_frag.c.obj
  .rodata.ip4_reass.str1.4
-                0x10021528       0x70 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/ip4_frag.c.obj
+                0x10021538       0x70 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/ip4_frag.c.obj
  .rodata.ip4_frag.str1.4
-                0x10021528       0x20 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/ip4_frag.c.obj
+                0x10021538       0x20 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/ip4_frag.c.obj
  .rodata.ip4_output_if.str1.4
-                0x10021528       0x39 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/ip4.c.obj
+                0x10021538       0x39 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/ip4.c.obj
  .rodata.ip4addr_aton.str1.4
-                0x10021528        0xa src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/ip4_addr.c.obj
+                0x10021538        0xa src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/ip4_addr.c.obj
  .rodata.ip4addr_aton
-                0x10021528       0x14 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/ip4_addr.c.obj
+                0x10021538       0x14 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/ip4_addr.c.obj
  .rodata.ip_addr_broadcast
-                0x1002153c        0x4 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/ip4_addr.c.obj
-                0x1002153c                ip_addr_broadcast
+                0x1002154c        0x4 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/ip4_addr.c.obj
+                0x1002154c                ip_addr_broadcast
  .rodata.ip_addr_any
-                0x10021540        0x4 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/ip4_addr.c.obj
-                0x10021540                ip_addr_any
+                0x10021550        0x4 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/core/ipv4/ip4_addr.c.obj
+                0x10021550                ip_addr_any
  .rodata.ethernet_output.str1.4
-                0x10021544       0x31 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/netif/ethernet.c.obj
+                0x10021554       0x31 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/netif/ethernet.c.obj
  .rodata.ethzero
-                0x10021544        0x6 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/netif/ethernet.c.obj
-                0x10021544                ethzero
- *fill*         0x1002154a        0x2 
+                0x10021554        0x6 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/netif/ethernet.c.obj
+                0x10021554                ethzero
+ *fill*         0x1002155a        0x2 
  .rodata.ethbroadcast
-                0x1002154c        0x6 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/netif/ethernet.c.obj
-                0x1002154c                ethbroadcast
+                0x1002155c        0x6 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/netif/ethernet.c.obj
+                0x1002155c                ethbroadcast
  .rodata.cyw43_read_bytes.str1.4
-                0x10021552       0x1a src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.c.obj
+                0x10021562       0x1a src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.c.obj
  .rodata.cyw43_write_bytes.str1.4
-                0x10021552        0xd src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.c.obj
- *fill*         0x10021552        0x2 
+                0x10021562        0xd src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.c.obj
+ *fill*         0x10021562        0x2 
  .rodata.spi_gap01_sample0_program
-                0x10021554        0x8 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.c.obj
+                0x10021564        0x8 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.c.obj
  .rodata.spi_gap01_sample0_program_instructions
-                0x1002155c        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.c.obj
+                0x1002156c        0xc src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.c.obj
  .rodata.cyw43_kso_set.str1.4
-                0x10021568       0x23 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
+                0x10021578       0x23 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
  .rodata.cyw43_ll_sdpcm_poll_device.str1.4
-                0x10021568       0x55 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
+                0x10021578       0x55 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
  .rodata.cyw43_sdpcm_send_common.str1.4
-                0x10021568       0x22 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
+                0x10021578       0x22 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
  .rodata.cyw43_do_ioctl.part.0.str1.4
-                0x10021568       0x53 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
+                0x10021578       0x53 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
  .rodata.reset_device_core.constprop.0.str1.4
-                0x10021568       0x1a src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
+                0x10021578       0x1a src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
  .rodata.cyw43_ll_wifi_on.str1.4
-                0x10021568       0x52 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
+                0x10021578       0x52 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
  .rodata.cyw43_ll_bus_init.str1.4
-                0x10021568       0xea src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
+                0x10021578       0xea src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
  .rodata.cyw43_ll_wifi_pm.str1.4
-                0x10021568       0x35 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
+                0x10021578       0x35 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
  .rodata.cyw43_ll_wifi_join.str1.4
-                0x10021568       0x55 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
+                0x10021578       0x55 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
  .rodata.cyw43_ll_wifi_ap_init.str1.4
-                0x10021568       0x45 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
+                0x10021578       0x45 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
  .rodata.cyw43_ll_wifi_ap_set_up.str1.4
-                0x10021568        0x4 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
+                0x10021578        0x4 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
  .rodata.cyw43_ll_gpio_set.str1.4
-                0x10021568        0x8 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
+                0x10021578        0x8 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
  .rodata.w43439A0_7_95_49_00_combined
-                0x10021568    0x36fd8 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
+                0x10021578    0x36fd8 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
  .rodata.wifi_nvram_4343
-                0x10058540      0x2e7 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
- *fill*         0x10058827        0x1 
- .rodata        0x10058828       0x72 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
+                0x10058550      0x2e7 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
+ *fill*         0x10058837        0x1 
+ .rodata        0x10058838       0x72 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ll.c.obj
  .rodata.cyw43_netif_output.str1.4
-                0x1005889a       0x22 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_lwip.c.obj
+                0x100588aa       0x22 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_lwip.c.obj
  .rodata.cyw43_cb_tcpip_init.str1.4
-                0x1005889a        0x6 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_lwip.c.obj
+                0x100588aa        0x6 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_lwip.c.obj
  .rodata.cyw43_cb_process_async_event.str1.4
-                0x1005889a       0x28 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ctrl.c.obj
- *fill*         0x1005889a        0x2 
+                0x100588aa       0x28 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ctrl.c.obj
+ *fill*         0x100588aa        0x2 
  .rodata.cyw43_cb_process_async_event
-                0x1005889c       0xc8 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ctrl.c.obj
+                0x100588ac       0xc8 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ctrl.c.obj
  .rodata.str1.4
-                0x10058964       0x9e src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ctrl.c.obj
+                0x10058974       0x9e src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ctrl.c.obj
  .rodata.cyw43_async_event_name_table
-                0x10058964      0x164 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ctrl.c.obj
+                0x10058974      0x164 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/cyw43-driver/src/cyw43_ctrl.c.obj
  .rodata.pio_claim_unused_sm.str1.4
-                0x10058ac8       0x24 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_pio/pio.c.obj
+                0x10058ad8       0x24 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_pio/pio.c.obj
  .rodata.dma_claim_unused_channel.str1.4
-                0x10058ac8       0x1e src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_dma/dma.c.obj
+                0x10058ad8       0x1e src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_dma/dma.c.obj
  .rodata.async_context_threadsafe_background_lock_check.str1.4
-                0x10058ac8       0x20 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_async_context/async_context_threadsafe_background.c.obj
+                0x10058ad8       0x20 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_async_context/async_context_threadsafe_background.c.obj
  .rodata.template
-                0x10058ac8       0x38 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_async_context/async_context_threadsafe_background.c.obj
+                0x10058ad8       0x38 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_async_context/async_context_threadsafe_background.c.obj
  .rodata.mqtt_close.str1.4
-                0x10058b00       0x1b src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/apps/mqtt/mqtt.c.obj
+                0x10058b10       0x1b src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/apps/mqtt/mqtt.c.obj
  .rodata.mqtt_cyclic_timer.str1.4
-                0x10058b00       0x22 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/apps/mqtt/mqtt.c.obj
+                0x10058b10       0x22 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/apps/mqtt/mqtt.c.obj
  .rodata.mqtt_output_send.str1.4
-                0x10058b00       0x3d src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/apps/mqtt/mqtt.c.obj
+                0x10058b10       0x3d src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/apps/mqtt/mqtt.c.obj
  .rodata.mqtt_message_received.str1.4
-                0x10058b00       0x21 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/apps/mqtt/mqtt.c.obj
+                0x10058b10       0x21 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/apps/mqtt/mqtt.c.obj
  .rodata.mqtt_tcp_recv_cb.str1.4
-                0x10058b00       0x4a src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/apps/mqtt/mqtt.c.obj
+                0x10058b10       0x4a src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/apps/mqtt/mqtt.c.obj
  .rodata.mqtt_tcp_err_cb.str1.4
-                0x10058b00       0x20 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/apps/mqtt/mqtt.c.obj
+                0x10058b10       0x20 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/apps/mqtt/mqtt.c.obj
  .rodata.mqtt_publish.str1.4
-                0x10058b00       0x71 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/apps/mqtt/mqtt.c.obj
+                0x10058b10       0x71 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/apps/mqtt/mqtt.c.obj
  .rodata.mqtt_client_connect.str1.4
-                0x10058b00       0xac src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/apps/mqtt/mqtt.c.obj
+                0x10058b10       0xac src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/apps/mqtt/mqtt.c.obj
  .rodata.mqtt_client_is_connected.str1.4
-                0x10058b00       0x29 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/apps/mqtt/mqtt.c.obj
+                0x10058b10       0x29 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/lib/lwip/src/apps/mqtt/mqtt.c.obj
  .rodata._ctype_
-                0x10058b00      0x101 C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-ctype_.o)
-                0x10058b00                _ctype_
-                0x10058c04                        . = ALIGN (0x4)
- *fill*         0x10058c01        0x3 
+                0x10058b10      0x101 C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-ctype_.o)
+                0x10058b10                _ctype_
+                0x10058c14                        . = ALIGN (0x4)
+ *fill*         0x10058c11        0x3 
  *(SORT_BY_ALIGNMENT(SORT_BY_NAME(.flashdata*)))
-                0x10058c04                        . = ALIGN (0x4)
+                0x10058c14                        . = ALIGN (0x4)
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x10058c04                        __exidx_start = .
+                0x10058c14                        __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x10058c04                        __exidx_end = .
-                0x10058c04                        . = ALIGN (0x4)
-                0x10058c04                        __binary_info_start = .
+                0x10058c14                        __exidx_end = .
+                0x10058c14                        . = ALIGN (0x4)
+                0x10058c14                        __binary_info_start = .
 
-.binary_info    0x10058c04       0x20
+.binary_info    0x10058c14       0x20
  *(.binary_info.keep.*)
  .binary_info.keep.__bi_ptr84
-                0x10058c04        0x4 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
- .binary_info.keep.__bi_ptr78
-                0x10058c08        0x4 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
- .binary_info.keep.__bi_ptr54
-                0x10058c0c        0x4 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
- .binary_info.keep.__bi_ptr48
-                0x10058c10        0x4 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
- .binary_info.keep.__bi_ptr42
                 0x10058c14        0x4 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
- .binary_info.keep.__bi_ptr34
+ .binary_info.keep.__bi_ptr78
                 0x10058c18        0x4 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
- .binary_info.keep.__bi_ptr26
+ .binary_info.keep.__bi_ptr54
                 0x10058c1c        0x4 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+ .binary_info.keep.__bi_ptr48
+                0x10058c20        0x4 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+ .binary_info.keep.__bi_ptr42
+                0x10058c24        0x4 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+ .binary_info.keep.__bi_ptr34
+                0x10058c28        0x4 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+ .binary_info.keep.__bi_ptr26
+                0x10058c2c        0x4 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
  *(.binary_info.*)
  .binary_info.__bi_ptr197
-                0x10058c20        0x4 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
-                0x10058c24                        __binary_info_end = .
+                0x10058c30        0x4 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x10058c34                        __binary_info_end = .
 
-.rel.dyn        0x10058c24        0x0
- .rel.iplt      0x10058c24        0x0 C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp/crtbegin.o
-                0x10058c24                        . = ALIGN (0x4)
+.rel.dyn        0x10058c34        0x0
+ .rel.iplt      0x10058c34        0x0 C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp/crtbegin.o
+                0x10058c34                        . = ALIGN (0x4)
 
 .ram_vector_table
                 0x20000000       0xc0
@@ -6740,7 +6740,7 @@ LOAD C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc
  .uninitialized_data.rng_state
                 0x200000d0       0x10 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_rand/rand.c.obj
 
-.data           0x200000e0     0x1768 load address 0x10058c24
+.data           0x200000e0     0x1768 load address 0x10058c34
                 0x200000e0                        __data_start__ = .
  *(vtable)
  *(.time_critical*)
@@ -6912,23 +6912,23 @@ LOAD C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc
                 0x20001848                        . = ALIGN (0x4)
 
 .tm_clone_table
-                0x20001848        0x0 load address 0x1005a38c
+                0x20001848        0x0 load address 0x1005a39c
  .tm_clone_table
                 0x20001848        0x0 C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp/crtbegin.o
  .tm_clone_table
                 0x20001848        0x0 C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp/crtend.o
 
-.igot.plt       0x20001848        0x0 load address 0x1005a38c
+.igot.plt       0x20001848        0x0 load address 0x1005a39c
  .igot.plt      0x20001848        0x0 C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp/crtbegin.o
 
-.tdata          0x20001848        0x0 load address 0x1005a38c
+.tdata          0x20001848        0x0 load address 0x1005a39c
                 0x20001848                        . = ALIGN (0x4)
  *(.tdata .tdata.* .gnu.linkonce.td.*)
                 0x20001848                        __tdata_end = .
                 0x20001848                        PROVIDE (__data_end__ = .)
-                0x10058c24                        __etext = LOADADDR (.data)
+                0x10058c34                        __etext = LOADADDR (.data)
 
-.tbss           0x20001848        0x0 load address 0x1005a38c
+.tbss           0x20001848        0x0 load address 0x1005a39c
                 0x20001848                        . = ALIGN (0x4)
                 0x20001848                        __bss_start__ = .
                 0x20001848                        __tls_base = .
@@ -6936,7 +6936,7 @@ LOAD C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc
  *(.tcommon)
                 0x20001848                        __tls_end = .
 
-.bss            0x20001848    0x2d0f4 load address 0x1005a38c
+.bss            0x20001848    0x2d0f4 load address 0x1005a39c
                 0x20001848                        . = ALIGN (0x4)
                 0x20001848                        __tbss_end = .
  *(SORT_BY_ALIGNMENT(SORT_BY_NAME(.bss*)))
@@ -7386,26 +7386,26 @@ LOAD C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc
  *fill*         0x2002e939        0x3 
                 0x2002e93c                        __bss_end__ = .
 
-.heap           0x2002e93c      0x800 load address 0x1005a38c
+.heap           0x2002e93c      0x800 load address 0x1005a39c
                 0x2002e93c                        __end__ = .
                 0x2002e93c                        end = __end__
  *(.heap*)
  .heap          0x2002e93c      0x800 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_crt0/crt0.S.obj
                 0x20040000                        __HeapLimit = (ORIGIN (RAM) + LENGTH (RAM))
 
-.scratch_x      0x20040000        0x0 load address 0x1005a38c
+.scratch_x      0x20040000        0x0 load address 0x1005a39c
                 0x20040000                        __scratch_x_start__ = .
  *(.scratch_x.*)
                 0x20040000                        . = ALIGN (0x4)
                 0x20040000                        __scratch_x_end__ = .
-                0x1005a38c                        __scratch_x_source__ = LOADADDR (.scratch_x)
+                0x1005a39c                        __scratch_x_source__ = LOADADDR (.scratch_x)
 
-.scratch_y      0x20041000        0x0 load address 0x1005a38c
+.scratch_y      0x20041000        0x0 load address 0x1005a39c
                 0x20041000                        __scratch_y_start__ = .
  *(.scratch_y.*)
                 0x20041000                        . = ALIGN (0x4)
                 0x20041000                        __scratch_y_end__ = .
-                0x1005a38c                        __scratch_y_source__ = LOADADDR (.scratch_y)
+                0x1005a39c                        __scratch_y_source__ = LOADADDR (.scratch_y)
 
 .stack1_dummy   0x20040000      0x800
  *(.stack1*)
@@ -7415,9 +7415,9 @@ LOAD C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc
  *(.stack*)
  .stack         0x20041000      0x800 src/CMakeFiles/picow_freertos.dir/C_/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_crt0/crt0.S.obj
 
-.flash_end      0x1005a38c        0x0
+.flash_end      0x1005a39c        0x0
  *(.embedded_end_block*)
-                0x1005a38c                        PROVIDE (__flash_binary_end = .)
+                0x1005a39c                        PROVIDE (__flash_binary_end = .)
                 0x20040000                        __StackLimit = (ORIGIN (RAM) + LENGTH (RAM))
                 0x20041000                        __StackOneTop = (ORIGIN (SCRATCH_X) + LENGTH (SCRATCH_X))
                 0x20042000                        __StackTop = (ORIGIN (SCRATCH_Y) + LENGTH (SCRATCH_Y))

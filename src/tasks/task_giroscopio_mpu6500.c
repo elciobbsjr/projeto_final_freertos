@@ -14,7 +14,7 @@
 #define MPU6500_REG_WHO_AM_I 0x75
 
 extern volatile bool emergencia_ativa;
-extern SemaphoreHandle_t i2c1_mutex;
+extern SemaphoreHandle_t i2c1_mutex; // Mantenha o nome, mas usaremos para I2C0
 extern QueueHandle_t fila_alertas_mqtt;  // ✅ Fila global de alertas
 
 bool mpu6500_check_whoami() {
@@ -22,9 +22,10 @@ bool mpu6500_check_whoami() {
     uint8_t id = 0;
     bool success = false;
 
+    // Usamos I2C0_PORT para a comunicação real, mas o mutex ainda é i2c1_mutex
     if (xSemaphoreTake(i2c1_mutex, pdMS_TO_TICKS(100)) == pdTRUE) {
-        if (i2c_write_blocking(i2c1, MPU6500_ADDR, &reg, 1, true) >= 0 &&
-            i2c_read_blocking(i2c1, MPU6500_ADDR, &id, 1, false) >= 0) {
+        if (i2c_write_blocking(I2C0_PORT, MPU6500_ADDR, &reg, 1, true) >= 0 &&
+            i2c_read_blocking(I2C0_PORT, MPU6500_ADDR, &id, 1, false) >= 0) {
             success = (id == 0x70 || id == 0x68);
         }
         xSemaphoreGive(i2c1_mutex);
@@ -54,20 +55,21 @@ void task_giroscopio_mpu6500(void *pvParameters) {
 
         if (!mpu6500_check_whoami()) {
             if (sensor_conectado) {
-                safe_printf("[MPU6500] ERRO: Sensor não detectado (falha WHO_AM_I).\n");
+                safe_printf("[MPU6500] ERRO: Sensor não detectado (falha WHO_AM_I) no I2C0.\n"); // Mensagem atualizada
                 sensor_conectado = false;
             }
             vTaskDelay(pdMS_TO_TICKS(2000));
             continue;
         } else if (!sensor_conectado) {
-            safe_printf("[MPU6500] Sensor reconectado com sucesso.\n");
+            safe_printf("[MPU6500] Sensor reconectado com sucesso no I2C0.\n"); // Mensagem atualizada
             sensor_conectado = true;
         }
 
         mpu6500_data_t mpu_data;
 
+        // Usamos I2C0_PORT para a comunicação real, mas o mutex ainda é i2c1_mutex
         if (xSemaphoreTake(i2c1_mutex, pdMS_TO_TICKS(100)) == pdTRUE) {
-            mpu6500_read_raw(i2c1, &mpu_data);
+            mpu6500_read_raw(I2C0_PORT, &mpu_data); // <<< MUDANÇA AQUI: i2c1_mutex agora controla I2C0_PORT
             xSemaphoreGive(i2c1_mutex);
         } else {
             vTaskDelay(pdMS_TO_TICKS(100));
