@@ -61,7 +61,6 @@ Raspberry Pi Pico W + FreeRTOS
 ## 📡 Tópicos MQTT Utilizados
 
 - `/notificacoes/telegram`: alertas enviados para o bot
-- `sensor/vl53l0x/distancia`: distância lida do sensor VL53L0X
 
 ---
 
@@ -85,7 +84,7 @@ Raspberry Pi Pico W + FreeRTOS
 Este projeto utiliza submódulos Git para bibliotecas externas. Use o seguinte comando para clonar corretamente:
 
 ```bash
-git clone --recurse-submodules https://github.com/seu-usuario/seu-repositorio.git
+git clone --recurse-submodules https://github.com/elciobbsjr/projeto_final_freertos.git
 ```
 
 > Se já clonou sem submódulos:
