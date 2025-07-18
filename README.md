@@ -151,9 +151,3 @@ O bot deve estar ativo e ouvindo o tópico `/notificacoes/telegram` no broker MQ
 
 ---
 
-## 👨‍💻 Autor
-
-**Luiz Carlos**  
-Curso: Ciência e Tecnologia - UFMA  
-Matrícula: 12.023.04.1590  
-Orientador: Prof. Thales
