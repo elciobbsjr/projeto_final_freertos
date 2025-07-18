@@ -1,8 +1,14 @@
 cmake_minimum_required(VERSION 3.13)
 
-# Caminhos para SDK e extras
-set(PICO_SDK_PATH "C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1")
-set(PICO_EXTRAS_PATH "${PICO_SDK_PATH}/lib/pico-extras")
+# Verifica se a variável de ambiente PICO_SDK_PATH está definida
+if(NOT DEFINED PICO_SDK_PATH)
+    set(PICO_SDK_PATH "$ENV{PICO_SDK_PATH}")
+endif()
+
+# Define caminho para pico-extras com base no SDK
+if(NOT DEFINED PICO_EXTRAS_PATH)
+    set(PICO_EXTRAS_PATH "${PICO_SDK_PATH}/lib/pico-extras")
+endif()
 
 # Importa SDK e extras
 include(${PICO_SDK_PATH}/external/pico_sdk_import.cmake)
@@ -28,7 +34,7 @@ add_executable(picow_freertos
     tasks/task_emergencia.c
     tasks/task_wifi.c
     tasks/task_oximetro_max30102.c
-    tasks/task_mqtt.c                    # ✅ Nova task adicionada
+    tasks/task_mqtt.c
     tasks/task_telegram.c
     tasks/task_alertas_mqtt.c
 
@@ -38,7 +44,7 @@ add_executable(picow_freertos
     drivers/vl53l0x.c
 
     # MQTT
-    mqtt_lwip.c                          # ✅ Cliente MQTT lwIP
+    mqtt_lwip.c
 )
 
 # Define a saída do executável
@@ -54,7 +60,7 @@ target_sources(picow_freertos
 target_include_directories(picow_freertos
     PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}            # src/
-    ${CMAKE_CURRENT_LIST_DIR}/../inc     # inc/ (headers .h, incluindo mqtt_lwip.h, task_mqtt.h)
+    ${CMAKE_CURRENT_LIST_DIR}/../inc     # inc/ (headers .h)
 )
 
 # Vincula as bibliotecas necessárias
@@ -67,5 +73,5 @@ target_link_libraries(picow_freertos
     pico_lwip_mqtt
 )
 
-# Gera os arquivos .uf2, .hex e .bin
+# Gera arquivos .uf2, .hex e .bin
 pico_add_extra_outputs(picow_freertos)

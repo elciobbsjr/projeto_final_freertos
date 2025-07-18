@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_interp
+# Install script for directory: C:/Users/ResTIC16/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_interp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,12 +34,12 @@ endif()
 
 # Set path to fallback-tool for dependency-resolution.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-objdump.exe")
+  set(CMAKE_OBJDUMP "C:/Users/ResTIC16/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-objdump.exe")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/Users/Elcio.SAMSUNGBOOK-2DE/Desktop/projeto_final_freertos/build/pico-sdk/src/rp2_common/hardware_interp/install_local_manifest.txt"
+  file(WRITE "C:/Users/ResTIC16/Desktop/Embarcatech/projeto_final_freertos/build/pico-sdk/src/rp2_common/hardware_interp/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

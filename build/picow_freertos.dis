@@ -1,5 +1,5 @@
 
-C:/Users/Elcio.SAMSUNGBOOK-2DE/Desktop/projeto_final_freertos/build/picow_freertos.elf:     file format elf32-littlearm
+C:/Users/ResTIC16/Desktop/Embarcatech/projeto_final_freertos/build/picow_freertos.elf:     file format elf32-littlearm
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
@@ -47,16 +47,16 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  21 .debug_rnglists 0000b5b4  00000000  00000000  001655e8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line   0006be4b  00000000  00000000  00170b9c  2**0
+ 22 .debug_line   00068e29  00000000  00000000  00170b9c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 23 .debug_str    000151b8  00000000  00000000  001dc9e7  2**0
+ 23 .debug_str    00014d0f  00000000  00000000  001d99c5  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 24 .debug_frame  00008a84  00000000  00000000  001f1ba0  2**2
+ 24 .debug_frame  00008a84  00000000  00000000  001ee6d4  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 25 .debug_line_str 000003ca  00000000  00000000  001fa624  2**0
+ 25 .debug_line_str 0000036e  00000000  00000000  001f7158  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
-C:/Users/Elcio.SAMSUNGBOOK-2DE/Desktop/projeto_final_freertos/build/picow_freertos.elf:     file format elf32-littlearm
+C:/Users/ResTIC16/Desktop/Embarcatech/projeto_final_freertos/build/picow_freertos.elf:     file format elf32-littlearm
 
 
 Disassembly of section .boot2:

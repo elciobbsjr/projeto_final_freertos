@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Elcio.SAMSUNGBOOK-2DE/Desktop/projeto_final_freertos
+# Install script for directory: C:/Users/ResTIC16/Desktop/Embarcatech/projeto_final_freertos
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,21 +34,21 @@ endif()
 
 # Set path to fallback-tool for dependency-resolution.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Users/Elcio.SAMSUNGBOOK-2DE/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-objdump.exe")
+  set(CMAKE_OBJDUMP "C:/Users/ResTIC16/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-objdump.exe")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/Elcio.SAMSUNGBOOK-2DE/Desktop/projeto_final_freertos/build/pico-sdk/cmake_install.cmake")
-  include("C:/Users/Elcio.SAMSUNGBOOK-2DE/Desktop/projeto_final_freertos/build/FREERTOS_KERNEL/cmake_install.cmake")
-  include("C:/Users/Elcio.SAMSUNGBOOK-2DE/Desktop/projeto_final_freertos/build/src/cmake_install.cmake")
+  include("C:/Users/ResTIC16/Desktop/Embarcatech/projeto_final_freertos/build/pico-sdk/cmake_install.cmake")
+  include("C:/Users/ResTIC16/Desktop/Embarcatech/projeto_final_freertos/build/FREERTOS_KERNEL/cmake_install.cmake")
+  include("C:/Users/ResTIC16/Desktop/Embarcatech/projeto_final_freertos/build/src/cmake_install.cmake")
 
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/Users/Elcio.SAMSUNGBOOK-2DE/Desktop/projeto_final_freertos/build/install_local_manifest.txt"
+  file(WRITE "C:/Users/ResTIC16/Desktop/Embarcatech/projeto_final_freertos/build/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
 if(CMAKE_INSTALL_COMPONENT)
@@ -64,6 +64,6 @@ else()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/Users/Elcio.SAMSUNGBOOK-2DE/Desktop/projeto_final_freertos/build/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "C:/Users/ResTIC16/Desktop/Embarcatech/projeto_final_freertos/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
